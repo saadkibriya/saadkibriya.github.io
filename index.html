@@ -14,7 +14,7 @@
 <body>
 
   <!-- NAVBAR -->
-  <nav class="navbar">
+  <nav class="navbar" id="navbar">
     <a href="#" class="nav-logo">MK</a>
     <div class="nav-links">
       <a href="#about">About</a>
@@ -27,88 +27,87 @@
 
   <!-- HERO -->
   <section class="hero-section">
-    <p class="hero-eyebrow">Engineer · Researcher · Storyteller</p>
-    <h1 class="hero-title">Md Golam<br><span class="hero-muted">Kibriya.</span></h1>
-    <p class="hero-sub">EEE × ML × NLP — building things that matter.<br>A wannabe Walter Mitty with a published paper and a camera.</p>
-    <div class="hero-socials">
-      <a href="https://linkedin.com/in/mdgolamkibriya" target="_blank"><i class="ph ph-linkedin-logo"></i></a>
-      <a href="https://instagram.com/saadkibriya" target="_blank"><i class="ph ph-instagram-logo"></i></a>
-      <a href="https://github.com/saadkibriya" target="_blank"><i class="ph ph-github-logo"></i></a>
-      <a href="https://www.facebook.com/share/1GQaxwxWEq/" target="_blank"><i class="ph ph-facebook-logo"></i></a>
-      <a href="mailto:meetkibriya@gmail.com"><i class="ph ph-envelope"></i></a>
+    <img src="assets/hero.webp" alt="Md Golam Kibriya" class="hero-img" />
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Engineer · Researcher · Storyteller</p>
+      <h1 class="hero-title">Md Golam<br>Kibriya.</h1>
+      <div class="hero-welcome-card">
+        <span class="welcome-dot"></span>
+        <p>Scroll to explore — or just judge me by my playlist.</p>
+      </div>
     </div>
   </section>
 
-  <!-- WIDGET ROW -->
-  <section class="widget-row">
+  <!-- CONTENT SECTION -->
+  <section class="content-section" id="about">
 
-    <!-- PROFILE CARD -->
-    <div class="widget card-profile" id="about">
-      <div class="profile-img-wrap">
-        <img src="assets/profile.jpg" alt="Md Golam Kibriya" class="profile-img" onerror="this.parentElement.classList.add('no-photo')" />
-        <div class="profile-glass">
-          <span class="profile-name">Md Golam Kibriya</span>
-          <span class="profile-title">The Full Stack Human</span>
+    <!-- INTRO ROW -->
+    <div class="intro-row">
+      <div class="intro-text">
+        <h2 class="intro-heading">Hi, I'm Kibriya —<br><span class="intro-muted">a wannabe Walter Mitty<br>with a published paper.</span></h2>
+        <div class="hero-socials">
+          <a href="https://linkedin.com/in/mdgolamkibriya" target="_blank"><i class="ph ph-linkedin-logo"></i></a>
+          <a href="https://instagram.com/saadkibriya" target="_blank"><i class="ph ph-instagram-logo"></i></a>
+          <a href="https://github.com/saadkibriya" target="_blank"><i class="ph ph-github-logo"></i></a>
+          <a href="https://www.facebook.com/share/1GQaxwxWEq/" target="_blank"><i class="ph ph-facebook-logo"></i></a>
+          <a href="https://pinterest.com" target="_blank"><i class="ph ph-pinterest-logo"></i></a>
+          <a href="mailto:meetkibriya@gmail.com"><i class="ph ph-envelope"></i></a>
         </div>
       </div>
-    </div>
-
-    <!-- CLOCK WIDGET -->
-    <div class="widget card-clock">
-      <span class="clock-label">Dhaka Time</span>
-      <div class="clock-time" id="clock">--:--</div>
-      <span class="clock-date" id="clock-date">---</span>
-    </div>
-
-    <!-- SPOTIFY WIDGET -->
-<!-- SPOTIFY WIDGET -->
-<a href="https://open.spotify.com/playlist/1sx7Tz2FahlqJsQ9lOUuZa" target="_blank" class="widget card-spotify">
-  <div class="spotify-img-wrap">
-    <img src="assets/playlist.jpg" alt="Playlist" class="spotify-img" />
-    <div class="spotify-glass">
-      <span class="spotify-name">you ain't me, i ain't you*</span>
-      <span class="spotify-meta">by saad kibriya · Spotify</span>
-    </div>
-  </div>
-</a>
-
-  </section>
-
-  <!-- BENTO GRID -->
-  <section class="bento-grid">
-
-    <!-- RESEARCH -->
-    <div class="card card-research" id="research">
-      <span class="card-tag">The Federated Mind</span>
-      <h2>Research & AI</h2>
-      <p>Published in Springer Nature. Privacy-preserving federated learning for pox detection. 1,178 verified Bangla regional sentences. Currently training NLP models at UAP.</p>
-      <div class="terminal">
-        <span class="t-line"><span class="t-prompt">›</span> model.train(bangla_corpus)</span>
-        <span class="t-line"><span class="t-prompt">›</span> accuracy: 94.7%</span>
-        <span class="t-line blink"><span class="t-prompt">›</span> _</span>
+      <div class="intro-widgets">
+        <!-- CLOCK -->
+        <div class="widget card-clock">
+          <span class="clock-label">Dhaka Time</span>
+          <div class="clock-time" id="clock">--:--</div>
+          <span class="clock-date" id="clock-date">---</span>
+        </div>
+        <!-- SPOTIFY -->
+        <a href="https://open.spotify.com/playlist/1sx7Tz2FahlqJsQ9lOUuZa" target="_blank" class="widget card-spotify">
+          <div class="spotify-img-wrap">
+            <img src="assets/playlist.jpg" alt="Playlist" class="spotify-img" />
+            <div class="spotify-glass">
+              <span class="spotify-name">you ain't me, i ain't you*</span>
+              <span class="spotify-meta">by saad kibriya · Spotify</span>
+            </div>
+          </div>
+        </a>
       </div>
     </div>
 
-    <!-- ENGINEERING -->
-    <div class="card card-engineering">
-      <span class="card-tag">The Full Stack Human</span>
-      <h2>Engineering</h2>
-      <p>BSc EEE. Lightning fatality prediction over Bangladesh. Software-first mindset with deep hardware roots. LineageOS, ADB, Fastboot — yes, that counts as engineering.</p>
-    </div>
+    <!-- BENTO GRID -->
+    <div class="bento-grid">
 
-    <!-- PHOTOGRAPHY -->
-    <div class="card card-photo" id="photography">
-      <span class="card-tag">The Wandering Frame</span>
-      <h2>Photography</h2>
-      <p>Bandarban to Dhaka. Mountains, streets, coastlines — chasing light and good stories since before it was aesthetic.</p>
-      <a href="https://instagram.com/_randomcitizen" target="_blank" class="card-link">View on Instagram</a>
-    </div>
+      <div class="card card-research" id="research">
+        <span class="card-tag">The Federated Mind</span>
+        <h3>Research & AI</h3>
+        <p>Published in Springer Nature. Privacy-preserving federated learning for pox detection. 1,178 verified Bangla regional sentences. Currently training NLP models at UAP.</p>
+        <div class="terminal">
+          <span class="t-line"><span class="t-prompt">›</span> model.train(bangla_corpus)</span>
+          <span class="t-line"><span class="t-prompt">›</span> accuracy: 94.7%</span>
+          <span class="t-line blink"><span class="t-prompt">›</span> _</span>
+        </div>
+      </div>
 
-    <!-- WRITING -->
-    <div class="card card-writing" id="writing">
-      <span class="card-tag">The Dark Scribe</span>
-      <h2>Writing</h2>
-      <p>Horror. Paranormal. Thriller. Stories that keep you up at night — intentionally. Currently in the drafts. Like most good things.</p>
+      <div class="card card-engineering">
+        <span class="card-tag">The Full Stack Human</span>
+        <h3>Engineering</h3>
+        <p>BSc EEE. Lightning fatality prediction over Bangladesh. Software-first mindset with deep hardware roots. LineageOS, ADB, Fastboot — yes, that counts as engineering.</p>
+      </div>
+
+      <div class="card card-photo" id="photography">
+        <span class="card-tag">The Wandering Frame</span>
+        <h3>Photography</h3>
+        <p>Bandarban to Dhaka. Mountains, streets, coastlines — chasing light and good stories since before it was aesthetic.</p>
+        <a href="https://instagram.com/_randomcitizen" target="_blank" class="card-link">View on Instagram</a>
+      </div>
+
+      <div class="card card-writing" id="writing">
+        <span class="card-tag">The Dark Scribe</span>
+        <h3>Writing</h3>
+        <p>Horror. Paranormal. Thriller. Stories that keep you up at night — intentionally. Currently in the drafts. Like most good things.</p>
+      </div>
+
     </div>
 
   </section>
