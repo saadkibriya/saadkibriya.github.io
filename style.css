@@ -1,1 +1,228 @@
 
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #EFEFED;
+  --text-primary: #1a1a1a;
+  --text-secondary: #6b6b6b;
+  --font: 'Inter', system-ui, sans-serif;
+
+  /* Card colors */
+  --hero: #1a1a2e;
+  --research: #2D4A3E;
+  --engineering: #2C3E6B;
+  --photo: #F5F0E8;
+  --writing: #2A1A2E;
+  --chess: #F0EBE3;
+  --leo: #FDF6EC;
+  --location: #E8EEF5;
+}
+
+body {
+  background-color: var(--bg);
+  font-family: var(--font);
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.page-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  gap: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+/* BASE CARD */
+.card {
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06),
+              0 8px 24px rgba(0,0,0,0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  align-self: start;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.10),
+              0 24px 48px rgba(0,0,0,0.12);
+}
+
+/* CARD GRID PLACEMENT */
+.card-hero        { grid-column: span 2; background: var(--hero); }
+.card-research    { grid-column: span 2; background: var(--research); }
+.card-engineering { grid-column: span 2; background: var(--engineering); }
+.card-photo       { grid-column: span 2; background: var(--photo); }
+.card-writing     { grid-column: span 2; background: var(--writing); }
+.card-chess       { grid-column: span 1; background: var(--chess); }
+.card-leo         { grid-column: span 1; background: var(--leo); }
+.card-location    { grid-column: span 2; background: var(--location); }
+
+/* TAGS */
+.card-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 100px;
+  margin-bottom: 20px;
+}
+
+/* Dark cards — light text */
+.card-hero .card-tag,
+.card-research .card-tag,
+.card-engineering .card-tag,
+.card-writing .card-tag {
+  background: rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.7);
+}
+
+/* Light cards — dark text */
+.card-photo .card-tag,
+.card-chess .card-tag,
+.card-leo .card-tag,
+.card-location .card-tag {
+  background: rgba(0,0,0,0.07);
+  color: var(--text-secondary);
+}
+
+/* TYPOGRAPHY — dark cards */
+.card-hero h1,
+.card-research h2,
+.card-engineering h2,
+.card-writing h2 {
+  color: #ffffff;
+}
+
+.card-hero .bio,
+.card-research p,
+.card-engineering p,
+.card-writing p {
+  color: rgba(255,255,255,0.65);
+}
+
+/* TYPOGRAPHY — light cards */
+.card-photo h2,
+.card-chess h2,
+.card-leo h2,
+.card-location h2 {
+  color: var(--text-primary);
+}
+
+.card-photo p,
+.card-chess p,
+.card-leo p,
+.card-location p {
+  color: var(--text-secondary);
+}
+
+/* HERO SPECIFICS */
+.location-pill {
+  display: inline-block;
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 16px;
+  letter-spacing: 0.05em;
+}
+
+h1 {
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 12px;
+  color: #ffffff;
+}
+
+.name-highlight {
+  color: #a89cff;
+}
+
+.bio {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.hero-links a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 100px;
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.hero-links a:hover {
+  background: rgba(255,255,255,0.1);
+  color: #ffffff;
+}
+
+/* HEADINGS */
+h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 12px;
+}
+
+p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+/* CARD LINK */
+.card-link {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px solid var(--text-primary);
+  padding-bottom: 2px;
+  transition: opacity 0.2s ease;
+}
+
+.card-link:hover {
+  opacity: 0.6;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  body { padding: 16px; }
+
+  .page-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .card-hero,
+  .card-research,
+  .card-engineering,
+  .card-photo,
+  .card-writing,
+  .card-chess,
+  .card-leo,
+  .card-location {
+    grid-column: span 1;
+  }
+}
