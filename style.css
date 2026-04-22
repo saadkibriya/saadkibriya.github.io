@@ -593,3 +593,19 @@ body {
   }
   .scroll-top { bottom: 20px; right: 20px; }
 }
+/* Social card entrance animation */
+.social-card {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.5s ease, transform 0.5s ease,
+              box-shadow 0.25s ease;
+}
+
+.social-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.social-card:hover {
+  transform: translateY(-4px);
+}
