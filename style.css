@@ -32,9 +32,10 @@ body {
 .bento-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  gap: 20px;
   max-width: 1200px;
   margin: 0 auto;
+  align-items: start;
 }
 
 /* Mobile */
@@ -53,6 +54,7 @@ body {
   border-radius: 16px;
   padding: 28px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  align-self: start;
 }
 
 .card:hover {
