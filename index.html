@@ -13,110 +13,68 @@
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <nav class="navbar" id="navbar">
-    <a href="#" class="nav-logo">MK</a>
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#photography">Photography</a>
-      <a href="#research">Research</a>
-      <a href="#writing">Writing</a>
+  <!-- SECTION 1: WELCOME -->
+  <section class="welcome-section" id="welcome">
+
+    <!-- Blurred hero image -->
+    <div class="welcome-bg">
+      <img src="assets/hero.webp" alt="" class="welcome-img" />
+      <div class="welcome-overlay"></div>
     </div>
-    <a href="mailto:meetkibriya@gmail.com" class="nav-cta">Say Hello</a>
-  </nav>
 
-  <!-- HERO -->
-  <section class="hero-section">
-    <img src="assets/hero.webp" alt="Md Golam Kibriya" class="hero-img" />
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <p class="hero-eyebrow">Engineer · Researcher · Storyteller</p>
-      <h1 class="hero-title">Md Golam<br>Kibriya.</h1>
-      <div class="hero-welcome-card">
-        <span class="welcome-dot"></span>
-        <p>Scroll to explore — or just judge me by my playlist.</p>
-      </div>
-    </div>
-  </section>
+    <!-- Content -->
+    <div class="welcome-content">
+      <p class="welcome-eyebrow">Engineer · Researcher · Storyteller</p>
+      <h1 class="welcome-name">Md Golam<br>Kibriya.</h1>
+      <p class="welcome-tagline">A wannabe Walter Mitty with a published paper and a camera.</p>
 
-  <!-- CONTENT SECTION -->
-  <section class="content-section" id="about">
-
-    <!-- INTRO ROW -->
-    <div class="intro-row">
-      <div class="intro-text">
-        <h2 class="intro-heading">Hi, I'm Kibriya —<br><span class="intro-muted">a wannabe Walter Mitty<br>with a published paper.</span></h2>
-        <div class="hero-socials">
-          <a href="https://linkedin.com/in/mdgolamkibriya" target="_blank"><i class="ph ph-linkedin-logo"></i></a>
-          <a href="https://instagram.com/saadkibriya" target="_blank"><i class="ph ph-instagram-logo"></i></a>
-          <a href="https://github.com/saadkibriya" target="_blank"><i class="ph ph-github-logo"></i></a>
-          <a href="https://www.facebook.com/share/1GQaxwxWEq/" target="_blank"><i class="ph ph-facebook-logo"></i></a>
-          <a href="https://pinterest.com" target="_blank"><i class="ph ph-pinterest-logo"></i></a>
-          <a href="mailto:meetkibriya@gmail.com"><i class="ph ph-envelope"></i></a>
-        </div>
-      </div>
-      <div class="intro-widgets">
-        <!-- CLOCK -->
-        <div class="widget card-clock">
-          <span class="clock-label">Dhaka Time</span>
-          <div class="clock-time" id="clock">--:--</div>
-          <span class="clock-date" id="clock-date">---</span>
-        </div>
-        <!-- SPOTIFY -->
-        <a href="https://open.spotify.com/playlist/1sx7Tz2FahlqJsQ9lOUuZa" target="_blank" class="widget card-spotify">
-          <div class="spotify-img-wrap">
-            <img src="assets/playlist.jpg" alt="Playlist" class="spotify-img" />
-            <div class="spotify-glass">
-              <span class="spotify-name">you ain't me, i ain't you*</span>
-              <span class="spotify-meta">by saad kibriya · Spotify</span>
-            </div>
-          </div>
+      <!-- Social Link Cards -->
+      <div class="social-cards">
+        <a href="https://linkedin.com/in/mdgolamkibriya" target="_blank" class="social-card">
+          <i class="ph ph-linkedin-logo"></i>
+          <span>LinkedIn</span>
+        </a>
+        <a href="https://instagram.com/saadkibriya" target="_blank" class="social-card">
+          <i class="ph ph-instagram-logo"></i>
+          <span>Instagram</span>
+        </a>
+        <a href="https://github.com/saadkibriya" target="_blank" class="social-card">
+          <i class="ph ph-github-logo"></i>
+          <span>GitHub</span>
+        </a>
+        <a href="https://www.facebook.com/share/1GQaxwxWEq/" target="_blank" class="social-card">
+          <i class="ph ph-facebook-logo"></i>
+          <span>Facebook</span>
+        </a>
+        <a href="https://open.spotify.com/user/tml3cjk1vhnzwdgx23tsd03e8" target="_blank" class="social-card">
+          <i class="ph ph-spotify-logo"></i>
+          <span>Spotify</span>
+        </a>
+        <a href="https://pin.it/4rrveYzr9" target="_blank" class="social-card">
+          <i class="ph ph-pinterest-logo"></i>
+          <span>Pinterest</span>
+        </a>
+        <a href="mailto:meetkibriya@gmail.com" class="social-card">
+          <i class="ph ph-envelope"></i>
+          <span>Email</span>
         </a>
       </div>
-    </div>
 
-    <!-- BENTO GRID -->
-    <div class="bento-grid">
-
-      <div class="card card-research" id="research">
-        <span class="card-tag">The Federated Mind</span>
-        <h3>Research & AI</h3>
-        <p>Published in Springer Nature. Privacy-preserving federated learning for pox detection. 1,178 verified Bangla regional sentences. Currently training NLP models at UAP.</p>
-        <div class="terminal">
-          <span class="t-line"><span class="t-prompt">›</span> model.train(bangla_corpus)</span>
-          <span class="t-line"><span class="t-prompt">›</span> accuracy: 94.7%</span>
-          <span class="t-line blink"><span class="t-prompt">›</span> _</span>
-        </div>
+      <!-- Scroll hint -->
+      <div class="scroll-hint">
+        <i class="ph ph-arrow-down"></i>
       </div>
-
-      <div class="card card-engineering">
-        <span class="card-tag">The Full Stack Human</span>
-        <h3>Engineering</h3>
-        <p>BSc EEE. Lightning fatality prediction over Bangladesh. Software-first mindset with deep hardware roots. LineageOS, ADB, Fastboot — yes, that counts as engineering.</p>
-      </div>
-
-      <div class="card card-photo" id="photography">
-        <span class="card-tag">The Wandering Frame</span>
-        <h3>Photography</h3>
-        <p>Bandarban to Dhaka. Mountains, streets, coastlines — chasing light and good stories since before it was aesthetic.</p>
-        <a href="https://instagram.com/_randomcitizen" target="_blank" class="card-link">View on Instagram</a>
-      </div>
-
-      <div class="card card-writing" id="writing">
-        <span class="card-tag">The Dark Scribe</span>
-        <h3>Writing</h3>
-        <p>Horror. Paranormal. Thriller. Stories that keep you up at night — intentionally. Currently in the drafts. Like most good things.</p>
-      </div>
-
     </div>
 
   </section>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <span>Md Golam Kibriya · meetkibriya@gmail.com</span>
-    <span>Built with intent. Hosted on GitHub Pages.</span>
-  </footer>
+  <!-- SECTIONS 2 & 3 COMING NEXT -->
+  <div id="next-sections"></div>
+
+  <!-- SCROLL TO TOP -->
+  <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <i class="ph ph-arrow-up"></i>
+  </button>
 
   <script src="script.js"></script>
 </body>
