@@ -5,72 +5,121 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Md Golam Kibriya</title>
   <meta name="description" content="Engineer. Researcher. Storyteller. — Md Golam Kibriya" />
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <div class="page-wrapper">
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="#" class="nav-logo">MK</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#photography">Photography</a>
+      <a href="#research">Research</a>
+      <a href="#writing">Writing</a>
+    </div>
+    <a href="mailto:meetkibriya@gmail.com" class="nav-cta">Say Hello</a>
+  </nav>
 
-    <div class="card card-hero">
-      <span class="location-pill">Based in Dhaka, Bangladesh</span>
-      <h1>Hi, I'm <span class="name-highlight">Kibriya</span> — Engineer. Researcher. Storyteller.</h1>
-      <p class="bio">EEE x ML x NLP. A wannabe Walter Mitty with a published paper and a camera.</p>
-      <div class="hero-links">
-        <a href="https://linkedin.com/in/mdgolamkibriya" target="_blank"><i class="ph ph-linkedin-logo"></i> LinkedIn</a>
-        <a href="https://instagram.com/saadkibriya" target="_blank"><i class="ph ph-instagram-logo"></i> Instagram</a>
-        <a href="https://github.com/saadkibriya" target="_blank"><i class="ph ph-github-logo"></i> GitHub</a>
+  <!-- HERO -->
+  <section class="hero-section">
+    <p class="hero-eyebrow">Engineer · Researcher · Storyteller</p>
+    <h1 class="hero-title">Md Golam<br><span class="hero-muted">Kibriya.</span></h1>
+    <p class="hero-sub">EEE × ML × NLP — building things that matter.<br>A wannabe Walter Mitty with a published paper and a camera.</p>
+    <div class="hero-socials">
+      <a href="https://linkedin.com/in/mdgolamkibriya" target="_blank"><i class="ph ph-linkedin-logo"></i></a>
+      <a href="https://instagram.com/saadkibriya" target="_blank"><i class="ph ph-instagram-logo"></i></a>
+      <a href="https://github.com/saadkibriya" target="_blank"><i class="ph ph-github-logo"></i></a>
+      <a href="https://www.facebook.com/share/1GQaxwxWEq/" target="_blank"><i class="ph ph-facebook-logo"></i></a>
+      <a href="mailto:meetkibriya@gmail.com"><i class="ph ph-envelope"></i></a>
+    </div>
+  </section>
+
+  <!-- WIDGET ROW -->
+  <section class="widget-row">
+
+    <!-- PROFILE CARD -->
+    <div class="widget card-profile" id="about">
+      <div class="profile-img-wrap">
+        <img src="assets/profile.jpg" alt="Md Golam Kibriya" class="profile-img" onerror="this.parentElement.classList.add('no-photo')" />
+        <div class="profile-glass">
+          <span class="profile-name">Md Golam Kibriya</span>
+          <span class="profile-title">The Full Stack Human</span>
+        </div>
       </div>
     </div>
 
-    <div class="card card-research">
-      <span class="card-tag">The Federated Mind</span>
-      <h2>Research & AI</h2>
-      <p>Published in Springer Nature. Privacy-preserving federated learning for pox detection. 1,178 verified Bangla regional sentences.</p>
+    <!-- CLOCK WIDGET -->
+    <div class="widget card-clock">
+      <span class="clock-label">Dhaka Time</span>
+      <div class="clock-time" id="clock">--:--</div>
+      <span class="clock-date" id="clock-date">---</span>
     </div>
 
+    <!-- SPOTIFY WIDGET -->
+    <div class="widget card-spotify">
+      <span class="spotify-label">Now Playing</span>
+      <iframe
+        src="https://open.spotify.com/embed/playlist/1sx7Tz2FahlqJsQ9lOUuZa?utm_source=generator&theme=0"
+        width="100%"
+        height="152"
+        frameborder="0"
+        allowtransparency="true"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy">
+      </iframe>
+    </div>
+
+  </section>
+
+  <!-- BENTO GRID -->
+  <section class="bento-grid">
+
+    <!-- RESEARCH -->
+    <div class="card card-research" id="research">
+      <span class="card-tag">The Federated Mind</span>
+      <h2>Research & AI</h2>
+      <p>Published in Springer Nature. Privacy-preserving federated learning for pox detection. 1,178 verified Bangla regional sentences. Currently training NLP models at UAP.</p>
+      <div class="terminal">
+        <span class="t-line"><span class="t-prompt">›</span> model.train(bangla_corpus)</span>
+        <span class="t-line"><span class="t-prompt">›</span> accuracy: 94.7%</span>
+        <span class="t-line blink"><span class="t-prompt">›</span> _</span>
+      </div>
+    </div>
+
+    <!-- ENGINEERING -->
     <div class="card card-engineering">
       <span class="card-tag">The Full Stack Human</span>
       <h2>Engineering</h2>
-      <p>Lightning fatality prediction over Bangladesh. Software-first mindset with hardware roots. LineageOS, ADB, Fastboot, and beyond.</p>
+      <p>BSc EEE. Lightning fatality prediction over Bangladesh. Software-first mindset with deep hardware roots. LineageOS, ADB, Fastboot — yes, that counts as engineering.</p>
     </div>
 
-    <div class="card card-photo">
+    <!-- PHOTOGRAPHY -->
+    <div class="card card-photo" id="photography">
       <span class="card-tag">The Wandering Frame</span>
       <h2>Photography</h2>
-      <p>Bandarban to Dhaka. Mountains, streets, coastlines — chasing light and good stories.</p>
-      <a href="https://instagram.com/saadkibriya" target="_blank" class="card-link">View on Instagram</a>
+      <p>Bandarban to Dhaka. Mountains, streets, coastlines — chasing light and good stories since before it was aesthetic.</p>
+      <a href="https://instagram.com/_randomcitizen" target="_blank" class="card-link">View on Instagram</a>
     </div>
 
-    <div class="card card-writing">
+    <!-- WRITING -->
+    <div class="card card-writing" id="writing">
       <span class="card-tag">The Dark Scribe</span>
       <h2>Writing</h2>
-      <p>Horror. Paranormal. Thriller. Stories that keep you up at night — intentionally.</p>
+      <p>Horror. Paranormal. Thriller. Stories that keep you up at night — intentionally. Currently in the drafts. Like most good things.</p>
     </div>
 
-    <div class="card card-chess">
-      <span class="card-tag">Strategy</span>
-      <h2>Chess</h2>
-      <p>Grandmaster-level tactics. Pattern recognition under pressure. Same skill, different board.</p>
-    </div>
+  </section>
 
-    <div class="card card-leo">
-      <span class="card-tag">Important Personnel</span>
-      <h2>Leonidas</h2>
-      <p>Goes by Leo. Senior Chaos Officer. Adopted late 2025. Currently running the house.</p>
-    </div>
-
-    <div class="card card-location">
-      <span class="card-tag">Currently</span>
-      <h2>Kalyanpur, Dhaka</h2>
-      <p>Open to opportunities across Bangladesh and remote.</p>
-    </div>
-
-  </div>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <span>Md Golam Kibriya · meetkibriya@gmail.com</span>
+    <span>Built with intent. Hosted on GitHub Pages.</span>
+  </footer>
 
   <script src="script.js"></script>
 </body>
