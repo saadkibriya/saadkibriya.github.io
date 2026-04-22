@@ -117,3 +117,73 @@ h1 {
   border-color: var(--accent);
   color: var(--accent);
 }
+/* Card grid sizing */
+.card-ai {
+  grid-column: span 2;
+}
+
+.card-eee {
+  grid-column: span 2;
+}
+
+.card-photo {
+  grid-column: span 2;
+}
+
+.card-chess {
+  grid-column: span 2;
+}
+
+/* Terminal effect */
+.terminal {
+  margin-top: 16px;
+  background: #0a0a0a;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.t-line {
+  color: var(--green);
+  display: block;
+}
+
+.t-prompt {
+  color: var(--accent);
+  margin-right: 8px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.blink {
+  animation: blink 1.2s infinite;
+}
+
+/* Card link */
+.card-link {
+  display: inline-block;
+  margin-top: 16px;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+.card-link:hover {
+  text-decoration: underline;
+}
+
+/* Mobile override */
+@media (max-width: 768px) {
+  .card-ai, .card-eee,
+  .card-photo, .card-chess {
+    grid-column: span 1;
+  }
+}
