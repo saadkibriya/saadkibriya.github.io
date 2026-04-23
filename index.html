@@ -13,65 +13,65 @@
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <nav class="navbar" id="navbar">
-    <a href="#" class="nav-logo">MK</a>
-    <div class="nav-links">
-      <a href="#locate">Locate</a>
+  <!-- TWO PILL NAVBAR — hidden on landing, appears on scroll -->
+  <div class="dual-navbar" id="dualNavbar">
+    <!-- Left pill: profile photo -->
+    <div class="nav-pill nav-pill-left">
+      <img src="assets/hero.webp" alt="MK" class="nav-avatar" />
+      <span class="nav-name">Kibriya</span>
+    </div>
+    <!-- Right pill: links -->
+    <div class="nav-pill nav-pill-right">
       <a href="#mindspace">Mindspace</a>
       <a href="#portfolio">Portfolio</a>
-    </div>
-    <div class="nav-actions">
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <a href="#connect">Connect</a>
+      <button class="theme-toggle" id="themeToggle">
         <i class="ph ph-sun" id="themeIcon"></i>
       </button>
-      <a href="#connect" class="nav-cta">Connect</a>
     </div>
-  </nav>
+  </div>
 
   <!-- SECTION 1: LOCATE -->
   <section class="locate-section" id="locate">
-    <div class="locate-inner">
 
-      <!-- Left: Photo -->
-      <div class="locate-photo-wrap">
-        <img src="assets/hero.webp" alt="Md Golam Kibriya" class="locate-photo" />
-        <div class="locate-photo-blur"></div>
-      </div>
+    <!-- Full screen photo -->
+    <div class="locate-photo-wrap">
+      <img src="assets/hero.webp" alt="Md Golam Kibriya" class="locate-photo" />
+      <div class="locate-gradient"></div>
+    </div>
 
-      <!-- Right: Info -->
-      <div class="locate-info">
-        <p class="locate-eyebrow">Engineer · Researcher · Storyteller</p>
-        <h1 class="locate-name">Md Golam<br><em>Kibriya.</em></h1>
+    <!-- Content overlay at bottom -->
+    <div class="locate-content">
+      <p class="locate-eyebrow">Engineer · Researcher · Storyteller</p>
+      <h1 class="locate-name">Md Golam<br><em>Kibriya.</em></h1>
 
-        <!-- Social pills -->
-        <div class="social-pills">
-          <a href="https://linkedin.com/in/mdgolamkibriya" target="_blank" class="s-pill">
-            <i class="ph ph-linkedin-logo"></i> LinkedIn
-          </a>
-          <a href="https://instagram.com/saadkibriya" target="_blank" class="s-pill">
-            <i class="ph ph-instagram-logo"></i> Instagram
-          </a>
-          <a href="https://github.com/saadkibriya" target="_blank" class="s-pill">
-            <i class="ph ph-github-logo"></i> GitHub
-          </a>
-          <a href="https://www.facebook.com/share/1GQaxwxWEq/" target="_blank" class="s-pill">
-            <i class="ph ph-facebook-logo"></i> Facebook
-          </a>
-          <a href="https://open.spotify.com/user/tml3cjk1vhnzwdgx23tsd03e8" target="_blank" class="s-pill">
-            <i class="ph ph-spotify-logo"></i> Spotify
-          </a>
-          <a href="https://pin.it/4rrveYzr9" target="_blank" class="s-pill">
-            <i class="ph ph-pinterest-logo"></i> Pinterest
-          </a>
-        </div>
-
-        <a href="#mindspace" class="scroll-hint-btn">
-          Explore <i class="ph ph-arrow-down"></i>
+      <!-- Social icons: circles, icon only -->
+      <div class="social-circles">
+        <a href="https://linkedin.com/in/mdgolamkibriya" target="_blank" class="s-circle" title="LinkedIn">
+          <i class="ph ph-linkedin-logo"></i>
+        </a>
+        <a href="https://instagram.com/saadkibriya" target="_blank" class="s-circle" title="Instagram">
+          <i class="ph ph-instagram-logo"></i>
+        </a>
+        <a href="https://github.com/saadkibriya" target="_blank" class="s-circle" title="GitHub">
+          <i class="ph ph-github-logo"></i>
+        </a>
+        <a href="https://www.facebook.com/share/1GQaxwxWEq/" target="_blank" class="s-circle" title="Facebook">
+          <i class="ph ph-facebook-logo"></i>
+        </a>
+        <a href="https://open.spotify.com/user/tml3cjk1vhnzwdgx23tsd03e8" target="_blank" class="s-circle" title="Spotify">
+          <i class="ph ph-spotify-logo"></i>
+        </a>
+        <a href="https://pin.it/4rrveYzr9" target="_blank" class="s-circle" title="Pinterest">
+          <i class="ph ph-pinterest-logo"></i>
         </a>
       </div>
 
+      <a href="#mindspace" class="explore-btn">
+        Explore <i class="ph ph-arrow-down"></i>
+      </a>
     </div>
+
   </section>
 
   <!-- SECTION 2: MINDSPACE -->
@@ -83,42 +83,37 @@
 
     <div class="mindspace-grid">
 
-      <!-- Clock — circle shape -->
-      <div class="ms-item ms-clock-wrap">
-        <div class="clock-circle">
-          <span class="clock-label">Dhaka</span>
-          <div class="clock-time" id="clock">--:--</div>
-          <span class="clock-date" id="clock-date">---</span>
-        </div>
+      <!-- Clock -->
+      <div class="ms-clock">
+        <span class="clock-label">Dhaka</span>
+        <div class="clock-time" id="clock">--:--</div>
+        <span class="clock-date" id="clock-date">---</span>
       </div>
 
-      <!-- Spotify -->
-      <a href="https://open.spotify.com/playlist/1sx7Tz2FahlqJsQ9lOUuZa" target="_blank" class="ms-item ms-spotify">
-        <div class="spotify-img-wrap">
-          <img src="assets/playlist.webp" alt="Playlist" class="spotify-img"
-            onerror="this.src='https://via.placeholder.com/400x400/1a1a2e/ffffff?text=Playlist'" />
-          <div class="spotify-glass">
-            <i class="ph ph-spotify-logo spotify-icon"></i>
-            <span class="spotify-name">you ain't me, i ain't you*</span>
-            <span class="spotify-meta">Curated by Saad</span>
-          </div>
-        </div>
-      </a>
+      <!-- Spotify embed -->
+      <div class="ms-spotify">
+        <iframe
+          src="https://open.spotify.com/embed/playlist/1sx7Tz2FahlqJsQ9lOUuZa?utm_source=generator&theme=0"
+          width="100%"
+          height="152"
+          frameborder="0"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy">
+        </iframe>
+      </div>
 
       <!-- Book Notes -->
-      <a href="https://drive.google.com/drive/folders/1EShveXlp0E5pqmcn5FCJDiASJWgfLFGd" target="_blank" class="ms-item ms-books">
-        <div class="books-inner">
-          <i class="ph ph-books books-icon"></i>
-          <span class="books-label">Book Notes</span>
-          <p class="books-sub">Thoughts on what I've read. Updated when I feel like it.</p>
-          <span class="books-cta">Open in Drive →</span>
-        </div>
+      <a href="https://drive.google.com/drive/folders/1EShveXlp0E5pqmcn5FCJDiASJWgfLFGd" target="_blank" class="ms-books">
+        <i class="ph ph-books"></i>
+        <span class="books-title">Book Notes</span>
+        <p>Thoughts on what I've read. Updated when I feel like it.</p>
+        <span class="books-cta">Open in Drive →</span>
       </a>
 
-      <!-- Available pill — floating -->
-      <div class="ms-item ms-available">
+      <!-- Available -->
+      <div class="ms-available">
         <span class="available-dot"></span>
-        <span>Open to opportunities</span>
+        Open to opportunities
       </div>
 
     </div>
@@ -133,7 +128,7 @@
 
     <div class="portfolio-grid">
 
-      <a href="#" class="p-card p-research">
+      <a href="research/index.html" class="p-card p-research">
         <span class="p-tag">The Federated Mind</span>
         <h2>Research<br>& AI</h2>
         <p>Published in Springer Nature. Privacy-preserving federated learning. 1,178 verified Bangla sentences.</p>
@@ -145,21 +140,21 @@
         <span class="p-arrow">→</span>
       </a>
 
-      <a href="#" class="p-card p-engineering">
+      <a href="engineering/index.html" class="p-card p-engineering">
         <span class="p-tag">The Full Stack Human</span>
         <h2>Engineering</h2>
-        <p>BSc EEE. Lightning fatality prediction. Software-first mindset with deep hardware roots.</p>
+        <p>BSc EEE. Lightning fatality prediction. Software-first mindset with deep hardware roots. LineageOS, ADB, Fastboot.</p>
         <span class="p-arrow">→</span>
       </a>
 
-      <a href="#" class="p-card p-photo">
+      <a href="photography/index.html" class="p-card p-photo">
         <span class="p-tag">The Wandering Frame</span>
         <h2>Photography</h2>
         <p>Bandarban to Dhaka. Mountains, streets, coastlines — chasing light and good stories.</p>
         <span class="p-arrow">→</span>
       </a>
 
-      <a href="#" class="p-card p-writing">
+      <a href="writing/index.html" class="p-card p-writing">
         <span class="p-tag">The Dark Scribe</span>
         <h2>Writing</h2>
         <p>Horror. Paranormal. Thriller. Stories that keep you up at night — intentionally.</p>
@@ -175,14 +170,14 @@
       <span class="section-pill">Connect</span>
       <p class="section-sub">Pick your weapon.</p>
     </div>
-    <div class="connect-row">
-      <a href="mailto:meetkibriya@gmail.com" class="c-btn">
+    <div class="connect-circles">
+      <a href="mailto:meetkibriya@gmail.com" class="c-circle" title="Email">
         <i class="ph ph-envelope"></i>
       </a>
-      <a href="https://wa.me/8801775533852" target="_blank" class="c-btn c-whatsapp">
+      <a href="https://wa.me/8801775533852" target="_blank" class="c-circle c-whatsapp" title="WhatsApp">
         <i class="ph ph-whatsapp-logo"></i>
       </a>
-      <a href="tel:+8801775533852" class="c-btn">
+      <a href="tel:+8801775533852" class="c-circle" title="Phone">
         <i class="ph ph-phone"></i>
       </a>
     </div>
@@ -195,7 +190,8 @@
   </footer>
 
   <!-- SCROLL TO TOP -->
-  <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <button class="scroll-top" id="scrollTop"
+    onclick="window.scrollTo({top:0,behavior:'smooth'})">
     <i class="ph ph-arrow-up"></i>
   </button>
 
