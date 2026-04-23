@@ -18,7 +18,6 @@ const dualNavbar = document.getElementById('dualNavbar');
 const navAvatar = document.getElementById('navAvatar');
 let lastScroll = 0;
 
-// Avatar click → scroll to connect
 navAvatar.addEventListener('click', () => {
   document.getElementById('connect').scrollIntoView({ behavior: 'smooth' });
 });
@@ -56,7 +55,6 @@ async function fetchWeather() {
     );
     const data = await res.json();
     const temp = Math.round(data.current_weather.temperature);
-    const code = data.current_weather.weathercode;
     const descs = {
       0:'Clear sky',1:'Mainly clear',2:'Partly cloudy',3:'Overcast',
       45:'Foggy',48:'Foggy',51:'Light drizzle',53:'Drizzle',55:'Heavy drizzle',
@@ -65,7 +63,8 @@ async function fetchWeather() {
       95:'Thunderstorm',96:'Thunderstorm'
     };
     document.getElementById('weatherVal').textContent = `${temp}°C`;
-    document.getElementById('weatherDesc').textContent = descs[code] || 'Clear';
+    document.getElementById('weatherDesc').textContent =
+      descs[data.current_weather.weathercode] || 'Clear';
   } catch {
     document.getElementById('weatherVal').textContent = '--°C';
     document.getElementById('weatherDesc').textContent = 'unavailable';
@@ -98,8 +97,8 @@ getMoonPhase();
 function daysLeft() {
   const now = new Date();
   const end = new Date(now.getFullYear(), 11, 31);
-  const diff = Math.ceil((end - now) / 86400000);
-  document.getElementById('daysLeft').textContent = diff;
+  document.getElementById('daysLeft').textContent =
+    Math.ceil((end - now) / 86400000);
   document.getElementById('currentYear').textContent = now.getFullYear();
 }
 daysLeft();
