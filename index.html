@@ -20,9 +20,9 @@
       <span class="nav-name">Kibriya</span>
     </div>
     <div class="nav-pill nav-pill-right">
-      <a href="#mindspace">Mindspace</a>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#connect">Connect</a>
+      <a href="#mindspace" class="nav-link">Mindspace</a>
+      <a href="#portfolio" class="nav-link">Portfolio</a>
+      <a href="#connect" class="nav-link">Connect</a>
       <button class="theme-toggle" id="themeToggle">
         <i class="ph ph-sun" id="themeIcon"></i>
       </button>
@@ -32,7 +32,7 @@
   <!-- SECTION 1: LOCATE -->
   <section class="locate-section" id="locate">
 
-    <!-- MOBILE: full screen photo with overlay -->
+    <!-- MOBILE -->
     <div class="locate-mobile">
       <div class="locate-photo-wrap">
         <img src="assets/hero.webp" alt="Md Golam Kibriya" class="locate-photo" />
@@ -57,14 +57,14 @@
       </div>
     </div>
 
-    <!-- DESKTOP: split layout -->
+    <!-- DESKTOP -->
     <div class="locate-desktop">
       <div class="locate-desktop-photo">
         <img src="assets/hero.webp" alt="Md Golam Kibriya" class="locate-photo-desk" />
         <div class="locate-desk-gradient"></div>
       </div>
       <div class="locate-desktop-info">
-        <p class="locate-eyebrow">Engineer · Researcher · Storyteller</p>
+        <p class="locate-eyebrow-desk">Engineer · Researcher · Storyteller</p>
         <h1 class="locate-name-desk">Md Golam<br><em>Kibriya.</em></h1>
         <div class="social-strip-desk">
           <a href="https://linkedin.com/in/mdgolamkibriya" target="_blank" class="s-box-desk" title="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
@@ -98,30 +98,35 @@
           </div>
           <div class="stat-cell">
             <span class="stat-label">Moon Phase</span>
-            <span class="stat-value" id="moonEmoji">🌑</span>
+            <span class="stat-value moon-val" id="moonEmoji">🌑</span>
             <span class="stat-sub" id="moonName">calculating...</span>
           </div>
           <div class="stat-cell stat-wide">
-            <span class="stat-label">Days Left in <span id="currentYear"></span></span>
+            <div>
+              <span class="stat-label">Days Left in <span id="currentYear"></span></span>
+              <span class="stat-sub">days remaining this year</span>
+            </div>
             <span class="stat-value stat-big" id="daysLeft">--</span>
-            <span class="stat-sub">days remaining</span>
           </div>
         </div>
       </div>
 
       <!-- Spotify -->
       <div class="ms-card ms-spotify-card">
-        <span class="ms-label">Playlist</span>
-        <div class="spotify-cover-wrap">
-          <img src="assets/playlist.webp" alt="Playlist" class="spotify-cover"
-            onerror="this.style.display='none'" />
-          <div class="spotify-info">
-            <span class="spotify-title">you ain't me, i ain't you*</span>
-            <span class="spotify-by">Curated by Saad Kibriya</span>
-          </div>
+        <div class="spotify-header">
+          <i class="ph ph-spotify-logo spotify-icon-green"></i>
+          <span class="ms-label" style="margin:0">Playlist</span>
         </div>
-        <a href="https://open.spotify.com/playlist/1sx7Tz2FahlqJsQ9lOUuZa" target="_blank" class="spotify-btn">
-          <i class="ph ph-spotify-logo"></i> Play on Spotify
+        <div class="spotify-album-grid">
+          <img src="assets/playlist.webp" alt="playlist" class="spotify-album-full"
+            onerror="this.parentElement.classList.add('no-img')" />
+        </div>
+        <div class="spotify-meta">
+          <span class="spotify-title">you ain't me, i ain't you*</span>
+          <span class="spotify-by">by Saad Kibriya</span>
+        </div>
+        <a href="https://open.spotify.com/playlist/1sx7Tz2FahlqJsQ9lOUuZa" target="_blank" class="spotify-play-btn">
+          <i class="ph ph-play-circle"></i> Open Playlist
         </a>
       </div>
 
@@ -135,9 +140,10 @@
 
       <!-- Joke -->
       <div class="ms-card ms-joke-card">
-        <span class="ms-label">Random Thought</span>
         <p class="joke-text" id="jokeText">Loading...</p>
-        <button class="joke-btn" id="jokeBtn">Another one ↻</button>
+        <button class="joke-refresh" id="jokeBtn" title="Another one">
+          <i class="ph ph-arrow-clockwise"></i>
+        </button>
       </div>
 
       <!-- Available -->
@@ -198,7 +204,7 @@
       <a href="mailto:meetkibriya@gmail.com" class="c-circle" title="Email">
         <i class="ph ph-envelope"></i>
       </a>
-      <a href="https://wa.me/8801701011654" target="_blank" class="c-circle c-whatsapp" title="WhatsApp">
+      <a href="https://wa.me/8801775533852" target="_blank" class="c-circle c-whatsapp" title="WhatsApp">
         <i class="ph ph-whatsapp-logo"></i>
       </a>
       <a href="tel:+8801701011654" class="c-circle" title="Phone">
