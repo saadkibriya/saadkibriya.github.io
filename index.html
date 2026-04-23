@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,7 +7,7 @@
   <meta name="description" content="Engineer. Researcher. Storyteller. — Md Golam Kibriya" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -21,86 +21,104 @@
       <a href="#mindspace">Mindspace</a>
       <a href="#portfolio">Portfolio</a>
     </div>
-    <a href="#connect" class="nav-cta">Connect</a>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <i class="ph ph-sun" id="themeIcon"></i>
+      </button>
+      <a href="#connect" class="nav-cta">Connect</a>
+    </div>
   </nav>
 
   <!-- SECTION 1: LOCATE -->
   <section class="locate-section" id="locate">
+    <div class="locate-inner">
 
-    <!-- Hero Image with gradient blur -->
-    <div class="hero-wrap">
-      <img src="assets/hero.webp" alt="Md Golam Kibriya" class="hero-img" />
-      <div class="hero-gradient"></div>
-      <div class="hero-blur-zone">
-        <div class="hero-text">
-          <h1 class="hero-name">Md Golam<br>Kibriya.</h1>
-          <p class="hero-tagline">Engineer. Researcher. Storyteller.</p>
+      <!-- Left: Photo -->
+      <div class="locate-photo-wrap">
+        <img src="assets/hero.webp" alt="Md Golam Kibriya" class="locate-photo" />
+        <div class="locate-photo-blur"></div>
+      </div>
+
+      <!-- Right: Info -->
+      <div class="locate-info">
+        <p class="locate-eyebrow">Engineer · Researcher · Storyteller</p>
+        <h1 class="locate-name">Md Golam<br><em>Kibriya.</em></h1>
+
+        <!-- Social pills -->
+        <div class="social-pills">
+          <a href="https://linkedin.com/in/mdgolamkibriya" target="_blank" class="s-pill">
+            <i class="ph ph-linkedin-logo"></i> LinkedIn
+          </a>
+          <a href="https://instagram.com/saadkibriya" target="_blank" class="s-pill">
+            <i class="ph ph-instagram-logo"></i> Instagram
+          </a>
+          <a href="https://github.com/saadkibriya" target="_blank" class="s-pill">
+            <i class="ph ph-github-logo"></i> GitHub
+          </a>
+          <a href="https://www.facebook.com/share/1GQaxwxWEq/" target="_blank" class="s-pill">
+            <i class="ph ph-facebook-logo"></i> Facebook
+          </a>
+          <a href="https://open.spotify.com/user/tml3cjk1vhnzwdgx23tsd03e8" target="_blank" class="s-pill">
+            <i class="ph ph-spotify-logo"></i> Spotify
+          </a>
+          <a href="https://pin.it/4rrveYzr9" target="_blank" class="s-pill">
+            <i class="ph ph-pinterest-logo"></i> Pinterest
+          </a>
         </div>
-      </div>
-    </div>
 
-    <!-- Social Cards -->
-    <div class="social-section">
-      <div class="social-grid" id="socialGrid">
-        <a href="https://linkedin.com/in/mdgolamkibriya" target="_blank" class="social-card">
-          <i class="ph ph-linkedin-logo"></i>
-          <span>LinkedIn</span>
-        </a>
-        <a href="https://instagram.com/saadkibriya" target="_blank" class="social-card">
-          <i class="ph ph-instagram-logo"></i>
-          <span>Instagram</span>
-        </a>
-        <a href="https://github.com/saadkibriya" target="_blank" class="social-card">
-          <i class="ph ph-github-logo"></i>
-          <span>GitHub</span>
-        </a>
-        <a href="https://www.facebook.com/share/1GQaxwxWEq/" target="_blank" class="social-card">
-          <i class="ph ph-facebook-logo"></i>
-          <span>Facebook</span>
-        </a>
-        <a href="https://open.spotify.com/user/tml3cjk1vhnzwdgx23tsd03e8" target="_blank" class="social-card">
-          <i class="ph ph-spotify-logo"></i>
-          <span>Spotify</span>
-        </a>
-        <a href="https://pin.it/4rrveYzr9" target="_blank" class="social-card">
-          <i class="ph ph-pinterest-logo"></i>
-          <span>Pinterest</span>
-        </a>
-        <a href="mailto:meetkibriya@gmail.com" class="social-card">
-          <i class="ph ph-envelope"></i>
-          <span>Email</span>
+        <a href="#mindspace" class="scroll-hint-btn">
+          Explore <i class="ph ph-arrow-down"></i>
         </a>
       </div>
-    </div>
 
+    </div>
   </section>
 
   <!-- SECTION 2: MINDSPACE -->
   <section class="mindspace-section" id="mindspace">
-    <div class="section-label">Mindspace</div>
+    <div class="section-header">
+      <span class="section-pill">Mindspace</span>
+      <p class="section-sub">What's running in the background.</p>
+    </div>
+
     <div class="mindspace-grid">
 
-      <div class="ms-card ms-clock">
-        <span class="ms-tag">Dhaka Time</span>
-        <div class="clock-time" id="clock">--:--</div>
-        <span class="clock-date" id="clock-date">---</span>
+      <!-- Clock — circle shape -->
+      <div class="ms-item ms-clock-wrap">
+        <div class="clock-circle">
+          <span class="clock-label">Dhaka</span>
+          <div class="clock-time" id="clock">--:--</div>
+          <span class="clock-date" id="clock-date">---</span>
+        </div>
       </div>
 
-      <a href="https://open.spotify.com/playlist/1sx7Tz2FahlqJsQ9lOUuZa" target="_blank" class="ms-card ms-spotify">
+      <!-- Spotify -->
+      <a href="https://open.spotify.com/playlist/1sx7Tz2FahlqJsQ9lOUuZa" target="_blank" class="ms-item ms-spotify">
         <div class="spotify-img-wrap">
-          <img src="assets/playlist.jpg" alt="Playlist" class="spotify-img" />
+          <img src="assets/playlist.jpg" alt="Playlist" class="spotify-img"
+            onerror="this.src='https://via.placeholder.com/400x400/1a1a2e/ffffff?text=Playlist'" />
           <div class="spotify-glass">
-            <span class="ms-tag" style="color:rgba(255,255,255,0.6)">Playlist</span>
+            <i class="ph ph-spotify-logo spotify-icon"></i>
             <span class="spotify-name">you ain't me, i ain't you*</span>
-            <span class="spotify-meta">by saad kibriya · Spotify</span>
+            <span class="spotify-meta">Curated by Saad</span>
           </div>
         </div>
       </a>
 
-      <div class="ms-card ms-reading">
-        <span class="ms-tag">Currently Reading</span>
-        <h3 class="reading-title">The Almanack of Naval Ravikant</h3>
-        <p class="reading-author">Eric Jorgenson</p>
+      <!-- Book Notes -->
+      <a href="https://drive.google.com/drive/folders/1EShveXlp0E5pqmcn5FCJDiASJWgfLFGd" target="_blank" class="ms-item ms-books">
+        <div class="books-inner">
+          <i class="ph ph-books books-icon"></i>
+          <span class="books-label">Book Notes</span>
+          <p class="books-sub">Thoughts on what I've read. Updated when I feel like it.</p>
+          <span class="books-cta">Open in Drive →</span>
+        </div>
+      </a>
+
+      <!-- Available pill — floating -->
+      <div class="ms-item ms-available">
+        <span class="available-dot"></span>
+        <span>Open to opportunities</span>
       </div>
 
     </div>
@@ -108,12 +126,16 @@
 
   <!-- SECTION 3: PORTFOLIO -->
   <section class="portfolio-section" id="portfolio">
-    <div class="section-label">Portfolio</div>
+    <div class="section-header">
+      <span class="section-pill">Portfolio</span>
+      <p class="section-sub">Four sides of the same person.</p>
+    </div>
+
     <div class="portfolio-grid">
 
       <a href="#" class="p-card p-research">
         <span class="p-tag">The Federated Mind</span>
-        <h3>Research & AI</h3>
+        <h2>Research<br>& AI</h2>
         <p>Published in Springer Nature. Privacy-preserving federated learning. 1,178 verified Bangla sentences.</p>
         <div class="terminal">
           <span class="t-line"><span class="t-prompt">›</span> model.train(bangla_corpus)</span>
@@ -125,21 +147,21 @@
 
       <a href="#" class="p-card p-engineering">
         <span class="p-tag">The Full Stack Human</span>
-        <h3>Engineering</h3>
-        <p>BSc EEE. Lightning fatality prediction. Software-first mindset with deep hardware roots. LineageOS, ADB, Fastboot.</p>
+        <h2>Engineering</h2>
+        <p>BSc EEE. Lightning fatality prediction. Software-first mindset with deep hardware roots.</p>
         <span class="p-arrow">→</span>
       </a>
 
       <a href="#" class="p-card p-photo">
         <span class="p-tag">The Wandering Frame</span>
-        <h3>Photography</h3>
+        <h2>Photography</h2>
         <p>Bandarban to Dhaka. Mountains, streets, coastlines — chasing light and good stories.</p>
         <span class="p-arrow">→</span>
       </a>
 
       <a href="#" class="p-card p-writing">
         <span class="p-tag">The Dark Scribe</span>
-        <h3>Writing</h3>
+        <h2>Writing</h2>
         <p>Horror. Paranormal. Thriller. Stories that keep you up at night — intentionally.</p>
         <span class="p-arrow">→</span>
       </a>
@@ -147,24 +169,21 @@
     </div>
   </section>
 
-  <!-- CONNECT -->
+  <!-- SECTION 4: CONNECT -->
   <section class="connect-section" id="connect">
-    <div class="section-label">Connect</div>
-    <div class="connect-grid">
-      <a href="mailto:meetkibriya@gmail.com" class="c-card">
+    <div class="section-header">
+      <span class="section-pill">Connect</span>
+      <p class="section-sub">Pick your weapon.</p>
+    </div>
+    <div class="connect-row">
+      <a href="mailto:meetkibriya@gmail.com" class="c-btn">
         <i class="ph ph-envelope"></i>
-        <span class="c-label">Email</span>
-        <span class="c-value">meetkibriya@gmail.com</span>
       </a>
-      <a href="https://wa.me/8801775533852" target="_blank" class="c-card">
+      <a href="https://wa.me/8801775533852" target="_blank" class="c-btn c-whatsapp">
         <i class="ph ph-whatsapp-logo"></i>
-        <span class="c-label">WhatsApp</span>
-        <span class="c-value">+880 1775533852</span>
       </a>
-      <a href="tel:+8801775533852" class="c-card">
+      <a href="tel:+8801775533852" class="c-btn">
         <i class="ph ph-phone"></i>
-        <span class="c-label">Phone</span>
-        <span class="c-value">+880 1775533852</span>
       </a>
     </div>
   </section>
@@ -172,7 +191,7 @@
   <!-- FOOTER -->
   <footer class="footer">
     <span>Md Golam Kibriya · 2026</span>
-    <span>Built with intent. Hosted on GitHub Pages.</span>
+    <span>Built with intent.</span>
   </footer>
 
   <!-- SCROLL TO TOP -->
