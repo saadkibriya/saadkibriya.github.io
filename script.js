@@ -15,7 +15,13 @@ themeToggle.addEventListener('click', () => {
 
 // ── DUAL NAVBAR
 const dualNavbar = document.getElementById('dualNavbar');
+const navAvatar = document.getElementById('navAvatar');
 let lastScroll = 0;
+
+// Avatar click → scroll to connect
+navAvatar.addEventListener('click', () => {
+  document.getElementById('connect').scrollIntoView({ behavior: 'smooth' });
+});
 
 window.addEventListener('scroll', () => {
   const current = window.scrollY;
@@ -42,24 +48,7 @@ window.addEventListener('scroll', () => {
   scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
 });
 
-// ── CLOCK
-function updateClock() {
-  const dhaka = new Date(
-    new Date().toLocaleString("en-US", { timeZone: "Asia/Dhaka" })
-  );
-  const h = String(dhaka.getHours()).padStart(2, '0');
-  const m = String(dhaka.getMinutes()).padStart(2, '0');
-  const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-  const months = ['Jan','Feb','Mar','Apr','May','Jun',
-                  'Jul','Aug','Sep','Oct','Nov','Dec'];
-  document.getElementById('clock').textContent = `${h}:${m}`;
-  document.getElementById('clock-date').textContent =
-    `${days[dhaka.getDay()]}, ${dhaka.getDate()} ${months[dhaka.getMonth()]}`;
-}
-updateClock();
-setInterval(updateClock, 1000);
-
-// ── WEATHER (Open-Meteo, no API key)
+// ── WEATHER
 async function fetchWeather() {
   try {
     const res = await fetch(
@@ -69,11 +58,11 @@ async function fetchWeather() {
     const temp = Math.round(data.current_weather.temperature);
     const code = data.current_weather.weathercode;
     const descs = {
-      0:'Clear sky', 1:'Mainly clear', 2:'Partly cloudy', 3:'Overcast',
-      45:'Foggy', 48:'Foggy', 51:'Light drizzle', 53:'Drizzle',
-      55:'Heavy drizzle', 61:'Light rain', 63:'Rain', 65:'Heavy rain',
-      71:'Light snow', 73:'Snow', 75:'Heavy snow', 80:'Showers',
-      81:'Showers', 82:'Heavy showers', 95:'Thunderstorm', 96:'Thunderstorm'
+      0:'Clear sky',1:'Mainly clear',2:'Partly cloudy',3:'Overcast',
+      45:'Foggy',48:'Foggy',51:'Light drizzle',53:'Drizzle',55:'Heavy drizzle',
+      61:'Light rain',63:'Rain',65:'Heavy rain',71:'Light snow',73:'Snow',
+      75:'Heavy snow',80:'Showers',81:'Showers',82:'Heavy showers',
+      95:'Thunderstorm',96:'Thunderstorm'
     };
     document.getElementById('weatherVal').textContent = `${temp}°C`;
     document.getElementById('weatherDesc').textContent = descs[code] || 'Clear';
@@ -86,20 +75,18 @@ fetchWeather();
 
 // ── MOON PHASE
 function getMoonPhase() {
-  const now = new Date();
   const known = new Date(2000, 0, 6);
-  const diff = (now - known) / (1000 * 60 * 60 * 24);
-  const cycle = 29.53058867;
-  const phase = ((diff % cycle) + cycle) % cycle;
+  const diff = (new Date() - known) / 86400000;
+  const phase = ((diff % 29.53058867) + 29.53058867) % 29.53058867;
   const phases = [
-    { max: 1.85,  emoji: '🌑', name: 'New Moon' },
-    { max: 7.38,  emoji: '🌒', name: 'Waxing Crescent' },
-    { max: 9.22,  emoji: '🌓', name: 'First Quarter' },
-    { max: 14.77, emoji: '🌔', name: 'Waxing Gibbous' },
-    { max: 16.61, emoji: '🌕', name: 'Full Moon' },
-    { max: 22.15, emoji: '🌖', name: 'Waning Gibbous' },
-    { max: 23.99, emoji: '🌗', name: 'Last Quarter' },
-    { max: 29.53, emoji: '🌘', name: 'Waning Crescent' },
+    {max:1.85,emoji:'🌑',name:'New Moon'},
+    {max:7.38,emoji:'🌒',name:'Waxing Crescent'},
+    {max:9.22,emoji:'🌓',name:'First Quarter'},
+    {max:14.77,emoji:'🌔',name:'Waxing Gibbous'},
+    {max:16.61,emoji:'🌕',name:'Full Moon'},
+    {max:22.15,emoji:'🌖',name:'Waning Gibbous'},
+    {max:23.99,emoji:'🌗',name:'Last Quarter'},
+    {max:29.53,emoji:'🌘',name:'Waning Crescent'},
   ];
   const p = phases.find(p => phase < p.max) || phases[0];
   document.getElementById('moonEmoji').textContent = p.emoji;
@@ -107,47 +94,45 @@ function getMoonPhase() {
 }
 getMoonPhase();
 
-// ── DAYS LEFT THIS YEAR
-function daysLeftThisYear() {
+// ── DAYS LEFT
+function daysLeft() {
   const now = new Date();
   const end = new Date(now.getFullYear(), 11, 31);
-  const diff = Math.ceil((end - now) / (1000 * 60 * 60 * 24));
+  const diff = Math.ceil((end - now) / 86400000);
   document.getElementById('daysLeft').textContent = diff;
   document.getElementById('currentYear').textContent = now.getFullYear();
 }
-daysLeftThisYear();
+daysLeft();
 
-// ── JOKES (clean, family-friendly)
+// ── JOKES
 const jokes = [
   "Why do programmers prefer dark mode? Because light attracts bugs.",
   "I told my computer I needed a break. Now it won't stop sending me Kit-Kat ads.",
-  "Why was the math book sad? It had too many problems.",
-  "A SQL query walks into a bar, walks up to two tables and asks... 'Can I join you?'",
+  "A SQL query walks into a bar and asks two tables: 'Can I join you?'",
   "Why do Java developers wear glasses? Because they don't C#.",
   "There are 10 types of people: those who understand binary, and those who don't.",
   "How do you comfort a JavaScript bug? You console it.",
-  "Why did the developer go broke? Because he used up all his cache.",
+  "Why did the developer go broke? He used up all his cache.",
   "I would tell you a UDP joke, but you might not get it.",
-  "Why did the programmer quit his job? Because he didn't get arrays.",
+  "Why did the programmer quit? He didn't get arrays.",
   "What's a computer's favorite snack? Microchips.",
-  "Why do engineers hate nature? It has too many bugs.",
-  "A photon checks into a hotel. The bellhop asks 'Can I help you with your luggage?' The photon replies 'No thanks, I'm traveling light.'",
-  "What did the ocean say to the beach? Nothing, it just waved.",
-  "Why can't you give Elsa a balloon? She'll let it go.",
+  "A photon checks into a hotel. Bellhop: 'Luggage?' Photon: 'No thanks, I'm traveling light.'",
+  "Why don't scientists trust atoms? They make up everything.",
+  "I asked the librarian for books about paranoia. She whispered: 'They're right behind you.'",
   "I'm reading a book on anti-gravity. It's impossible to put down.",
-  "Why did the scarecrow win an award? Because he was outstanding in his field.",
-  "I used to hate facial hair but then it grew on me.",
-  "Why don't scientists trust atoms? Because they make up everything.",
-  "I asked the librarian if they had books about paranoia. She whispered: 'They're right behind you.'",
+  "Why did the scarecrow win an award? He was outstanding in his field.",
+  "Why don't eggs tell jokes? They'd crack each other up.",
+  "What do you call a fish without eyes? A fsh.",
+  "I used to hate facial hair, but then it grew on me.",
+  "Why can't you give Elsa a balloon? She'll let it go.",
+  "What did the ocean say to the beach? Nothing, it just waved.",
 ];
 
 let jokeIndex = Math.floor(Math.random() * jokes.length);
-
 function showJoke() {
   document.getElementById('jokeText').textContent = jokes[jokeIndex];
   jokeIndex = (jokeIndex + 1) % jokes.length;
 }
-
 showJoke();
 document.getElementById('jokeBtn').addEventListener('click', showJoke);
 
@@ -159,7 +144,7 @@ const observer = new IntersectionObserver((entries) => {
       observer.unobserve(entry.target);
     }
   });
-}, { threshold: 0.1 });
+}, { threshold: 0.08 });
 
 document.querySelectorAll('.p-card, .ms-card, .c-circle').forEach(el => {
   el.classList.add('fade-up');
