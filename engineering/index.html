@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Engineering — Kibriya</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#eceae5;--surface:#f7f5f2;--s2:#eceae5;
+  --border:rgba(0,0,0,.07);--text:#1a1917;--muted:#6b6860;--subtle:#a09d97;
+  --accent:#2d6b2d;--accent-bg:#cee8ce;
+  --r:20px;--sh:0 1px 2px rgba(0,0,0,.05),0 2px 14px rgba(0,0,0,.05);
+}
+[data-theme=dark]{
+  --bg:#141312;--surface:#1e1d1b;--s2:#252321;
+  --border:rgba(255,255,255,.06);--text:#f0ede8;--muted:#9e9b94;--subtle:#5a5752;
+  --accent-bg:#1a3020;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);transition:background .3s,color .3s}
+a{color:inherit;text-decoration:none}
+
+nav{position:sticky;top:0;z-index:99;display:flex;align-items:center;justify-content:space-between;padding:10px 24px;background:color-mix(in srgb,var(--surface) 88%,transparent);border-bottom:1px solid var(--border);backdrop-filter:blur(18px)}
+.nav-back{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:500;color:var(--muted);background:var(--s2);border:1px solid var(--border);border-radius:10px;padding:5px 13px;transition:all .18s}
+.nav-back:hover{color:var(--text);background:var(--border)}
+.nav-back svg{width:12px;height:12px}
+.nav-title{font-size:13px;color:var(--subtle)}
+.nav-btn{width:32px;height:32px;border-radius:10px;border:none;background:var(--s2);color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .18s}
+.nav-btn svg{width:15px;height:15px}
+
+.hero{background:#1f3320;padding:80px 24px 60px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 60%,rgba(45,107,45,.38),transparent 58%)}
+.hero-inner{max-width:800px;margin:0 auto;position:relative}
+.hero-eyebrow{font-size:10px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:18px;display:block}
+.hero-title{font-family:'DM Serif Display',serif;font-size:clamp(38px,7vw,72px);line-height:1.05;letter-spacing:-2px;color:#fff;margin-bottom:20px}
+.hero-title em{font-style:italic;color:rgba(255,255,255,.55)}
+.hero-desc{font-size:16px;color:rgba(255,255,255,.6);max-width:520px;line-height:1.75}
+
+.wrap{max-width:800px;margin:0 auto;padding:56px 24px 100px}
+.sec-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--subtle);margin-bottom:20px;display:block}
+
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:48px}
+@media(max-width:540px){.stats{grid-template-columns:1fr}}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:22px;box-shadow:var(--sh)}
+.stat-n{font-family:'DM Serif Display',serif;font-size:36px;letter-spacing:-2px;line-height:1}
+.stat-l{font-size:12px;color:var(--muted);margin-top:5px;line-height:1.4}
+
+/* TIMELINE */
+.timeline{position:relative;margin-bottom:48px}
+.timeline::before{content:'';position:absolute;left:17px;top:8px;bottom:8px;width:2px;background:var(--border)}
+.tl-item{display:flex;gap:18px;margin-bottom:24px;position:relative}
+.tl-dot{width:34px;height:34px;border-radius:50%;background:var(--surface);border:2px solid var(--border);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:15px;position:relative;z-index:1;transition:border-color .2s}
+.tl-dot.on{border-color:var(--accent);background:var(--accent-bg)}
+.tl-body{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:20px 22px;flex:1;box-shadow:var(--sh);transition:transform .2s}
+.tl-item:hover .tl-body{transform:translateX(3px)}
+.tl-date{font-size:11px;font-weight:600;color:var(--subtle);letter-spacing:.4px;margin-bottom:5px}
+.tl-role{font-size:16px;font-weight:600;margin-bottom:3px}
+.tl-org{font-size:13px;color:var(--muted);margin-bottom:10px}
+.tl-desc{font-size:13px;color:var(--muted);line-height:1.65}
+.tl-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:12px}
+.tl-tag{font-size:10px;font-weight:600;padding:2px 9px;border-radius:5px;background:var(--accent-bg);color:var(--accent)}
+[data-theme=dark] .tl-tag{color:#6dbc6d}
+
+.skills{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:48px}
+@media(max-width:540px){.skills{grid-template-columns:1fr}}
+.skill{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:22px;box-shadow:var(--sh)}
+.skill-ic{font-size:22px;margin-bottom:10px}
+.skill-n{font-size:14px;font-weight:600;margin-bottom:4px}
+.skill-d{font-size:12px;color:var(--muted);line-height:1.5}
+.skill-bar{height:3px;background:var(--s2);border-radius:2px;margin-top:12px;overflow:hidden}
+.skill-fill{height:100%;border-radius:2px;background:var(--accent)}
+
+.code{background:#0d1117;color:#c9d1d9;border-radius:var(--r);padding:26px 28px;font-family:'SF Mono','Cascadia Code',monospace;font-size:13px;line-height:1.75;margin:48px 0;overflow-x:auto;border:1px solid rgba(255,255,255,.05)}
+.ck{color:#ff7b72}.cf{color:#d2a8ff}.cs{color:#a5d6ff}.cn{color:#79c0ff}.cc{color:#6e7681}
+
+.div{height:1px;background:var(--border);margin:48px 0}
+
+.cta{background:#1f3320;color:#cee8ce;border-radius:var(--r);padding:40px;text-align:center}
+.cta h3{font-family:'DM Serif Display',serif;font-size:28px;margin-bottom:8px}
+.cta p{font-size:14px;opacity:.65;margin-bottom:22px;line-height:1.65}
+.cta-btn{display:inline-block;padding:11px 26px;border-radius:50px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);color:#fff;font-size:13px;font-weight:600;transition:background .18s;font-family:'DM Sans',sans-serif}
+.cta-btn:hover{background:rgba(255,255,255,.22)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div style="display:flex;align-items:center;gap:10px">
+    <a class="nav-back" href="index.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Home
+    </a>
+    <span class="nav-title">Engineering</span>
+  </div>
+  <button class="nav-btn" onclick="toggleTheme()">
+    <svg id="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+  </button>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <span class="hero-eyebrow">The Full Stack Human</span>
+    <h1 class="hero-title">Engine<em>ering</em></h1>
+    <p class="hero-desc">BSc EEE from PUST. Circuits to code. Software-first mindset with deep hardware roots — LineageOS to lightning fatality models.</p>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="stats">
+    <div class="stat"><div class="stat-n">BSc</div><div class="stat-l">EEE — PUST, Rajshahi</div></div>
+    <div class="stat"><div class="stat-n">3+</div><div class="stat-l">Years research & industry XP</div></div>
+    <div class="stat"><div class="stat-n">2</div><div class="stat-l">Research assistant roles</div></div>
+  </div>
+
+  <span class="sec-label">Experience</span>
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-dot on">🔬</div>
+      <div class="tl-body">
+        <div class="tl-date">2024 — Recent · UAP, Dhaka</div>
+        <div class="tl-role">Research Assistant</div>
+        <div class="tl-org">University of Asia Pacific · under Md. Shahidul Islam</div>
+        <div class="tl-desc">Full-time, on-site, paid position. Bengali NLP corpus construction and data pipeline engineering. Built and verified 1,178 sentences for downstream language model training.</div>
+        <div class="tl-tags"><span class="tl-tag">NLP</span><span class="tl-tag">Data Pipeline</span><span class="tl-tag">Bengali</span></div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot on">🤖</div>
+      <div class="tl-body">
+        <div class="tl-date">2022 – 2024 · AIUB, Dhaka</div>
+        <div class="tl-role">Research Assistant / Intern</div>
+        <div class="tl-org">AMIRL Lab · under Dr. Mohammad Firoz Mridha</div>
+        <div class="tl-desc">Extended RA role at the Applied Machine Intelligence Research Lab. Federated learning for medical imaging — contributed to the Springer Nature paper on privacy-preserving pox disease detection.</div>
+        <div class="tl-tags"><span class="tl-tag">Federated Learning</span><span class="tl-tag">Medical AI</span><span class="tl-tag">CV</span></div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot">🏭</div>
+      <div class="tl-body">
+        <div class="tl-date">Oct – Nov 2022 · Pabna</div>
+        <div class="tl-role">Industrial Intern</div>
+        <div class="tl-org">Square Pharmaceuticals Ltd.</div>
+        <div class="tl-desc">Documented pharmaceutical manufacturing processes, instrumentation, and quality control systems at one of Bangladesh's largest pharma facilities.</div>
+        <div class="tl-tags"><span class="tl-tag">Instrumentation</span><span class="tl-tag">QC</span><span class="tl-tag">Industrial EEE</span></div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot">⚡</div>
+      <div class="tl-body">
+        <div class="tl-date">Feb 2021 – Mar 2022 · PUST</div>
+        <div class="tl-role">Vice Chairperson</div>
+        <div class="tl-org">IEEE PUST Student Branch</div>
+        <div class="tl-desc">Led technical workshops, coordinated events, and managed chapter communications for the IEEE student branch at PUST, Rajshahi.</div>
+        <div class="tl-tags"><span class="tl-tag">IEEE</span><span class="tl-tag">Leadership</span><span class="tl-tag">Events</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <span class="sec-label">Technical Skills</span>
+  <div class="skills">
+    <div class="skill"><div class="skill-ic">⚡</div><div class="skill-n">EEE Core</div><div class="skill-d">Circuit analysis, power systems, control systems, signal processing</div><div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div></div>
+    <div class="skill"><div class="skill-ic">🐍</div><div class="skill-n">Python · ML</div><div class="skill-d">PyTorch, TensorFlow, Pandas, NumPy, scikit-learn</div><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
+    <div class="skill"><div class="skill-ic">📱</div><div class="skill-n">Mobile · Embedded</div><div class="skill-d">LineageOS, ADB, Fastboot, Termux, Android internals</div><div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div></div>
+    <div class="skill"><div class="skill-ic">🌐</div><div class="skill-n">Web · Automation</div><div class="skill-d">HTML/CSS/JS, GitHub Pages, scripting, data pipelines</div><div class="skill-bar"><div class="skill-fill" style="width:72%"></div></div></div>
+  </div>
+
+  <div class="code">
+<span class="cc"># Lightning fatality prediction — snippet</span>
+<span class="ck">import</span> pandas <span class="ck">as</span> pd
+<span class="ck">from</span> sklearn.ensemble <span class="ck">import</span> RandomForestClassifier
+
+df       = pd.<span class="cf">read_csv</span>(<span class="cs">'bangladesh_lightning_1990_2023.csv'</span>)
+features = [<span class="cs">'lat'</span>, <span class="cs">'lon'</span>, <span class="cs">'month'</span>, <span class="cs">'rainfall_mm'</span>, <span class="cs">'temp_c'</span>, <span class="cs">'elevation_m'</span>]
+
+clf = <span class="cf">RandomForestClassifier</span>(n_estimators=<span class="cn">200</span>, max_depth=<span class="cn">12</span>, random_state=<span class="cn">42</span>)
+clf.<span class="cf">fit</span>(X_train, y_train)
+
+<span class="cf">print</span>(<span class="cs">f"Accuracy: {clf.score(X_test, y_test):.2%}"</span>)  <span class="cc"># → 87.4%</span>
+  </div>
+
+  <div class="cta">
+    <h3>Open to opportunities.</h3>
+    <p>Electrical · Electronics · Control Systems · Embedded · Automation · NLP Engineering</p>
+    <a class="cta-btn" href="https://www.linkedin.com/in/mdgolamkibriya" target="_blank">View LinkedIn</a>
+  </div>
+
+</div>
+
+<script>
+const MOON=`<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>`;
+const SUN=`<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>`;
+let dark=false;
+function toggleTheme(){dark=!dark;document.documentElement.setAttribute('data-theme',dark?'dark':'light');document.getElementById('ti').innerHTML=dark?MOON:SUN}
+</script>
+</body>
+</html>
