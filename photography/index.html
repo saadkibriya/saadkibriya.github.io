@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Photography — Kibriya</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#eceae5;--surface:#f7f5f2;--s2:#eceae5;
+  --border:rgba(0,0,0,.07);--text:#1a1917;--muted:#6b6860;--subtle:#a09d97;
+  --accent:#8b4513;--accent-bg:#f0d9c0;
+  --r:20px;--sh:0 1px 2px rgba(0,0,0,.05),0 2px 14px rgba(0,0,0,.05);
+}
+[data-theme=dark]{
+  --bg:#141312;--surface:#1e1d1b;--s2:#252321;
+  --border:rgba(255,255,255,.06);--text:#f0ede8;--muted:#9e9b94;--subtle:#5a5752;
+  --accent-bg:#2e1a0e;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);transition:background .3s,color .3s}
+a{color:inherit;text-decoration:none}
+
+nav{position:sticky;top:0;z-index:99;display:flex;align-items:center;justify-content:space-between;padding:10px 24px;background:color-mix(in srgb,var(--surface) 88%,transparent);border-bottom:1px solid var(--border);backdrop-filter:blur(18px)}
+.nav-back{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:500;color:var(--muted);background:var(--s2);border:1px solid var(--border);border-radius:10px;padding:5px 13px;transition:all .18s}
+.nav-back:hover{color:var(--text);background:var(--border)}
+.nav-back svg{width:12px;height:12px}
+.nav-title{font-size:13px;color:var(--subtle)}
+.nav-btn{width:32px;height:32px;border-radius:10px;border:none;background:var(--s2);color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .18s}
+.nav-btn svg{width:15px;height:15px}
+
+.hero{background:#2e1a0e;padding:80px 24px 60px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 65% 35%,rgba(139,69,19,.45),transparent 58%)}
+.hero-inner{max-width:900px;margin:0 auto;position:relative}
+.hero-eyebrow{font-size:10px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:18px;display:block}
+.hero-title{font-family:'DM Serif Display',serif;font-size:clamp(38px,7vw,72px);line-height:1.05;letter-spacing:-2px;color:#fff;margin-bottom:20px}
+.hero-title em{font-style:italic;color:rgba(255,255,255,.55)}
+.hero-desc{font-size:16px;color:rgba(255,255,255,.6);max-width:520px;line-height:1.75;margin-bottom:28px}
+.exif-row{display:flex;gap:10px;flex-wrap:wrap}
+.exif{font-size:11px;font-family:'SF Mono','Cascadia Code',monospace;color:rgba(255,255,255,.45);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);padding:4px 10px;border-radius:6px}
+
+.wrap{max-width:900px;margin:0 auto;padding:56px 24px 100px}
+.sec-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--subtle);margin-bottom:20px;display:block}
+
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:48px}
+@media(max-width:540px){.stats{grid-template-columns:1fr}}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:22px;box-shadow:var(--sh)}
+.stat-n{font-family:'DM Serif Display',serif;font-size:36px;letter-spacing:-2px;line-height:1}
+.stat-l{font-size:12px;color:var(--muted);margin-top:5px;line-height:1.4}
+
+/* MASONRY GRID */
+.gallery{
+  columns:2;column-gap:10px;
+  margin-bottom:48px;
+}
+@media(min-width:700px){.gallery{columns:3}}
+.g-item{
+  break-inside:avoid;margin-bottom:10px;
+  border-radius:14px;overflow:hidden;
+  background:var(--surface);border:1px solid var(--border);
+  cursor:pointer;transition:transform .22s,box-shadow .22s;
+  box-shadow:var(--sh);
+}
+.g-item:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.1)}
+.g-placeholder{
+  width:100%;
+  background:linear-gradient(135deg,var(--s2),var(--border));
+  display:flex;align-items:center;justify-content:center;
+  font-size:32px;
+}
+.g-meta{padding:10px 13px}
+.g-caption{font-size:12px;color:var(--muted);font-style:italic;margin-bottom:3px}
+.g-exif{font-size:10px;font-family:'SF Mono','Cascadia Code',monospace;color:var(--subtle)}
+
+/* ADD PHOTOS NOTE */
+.add-note{
+  background:var(--surface);border:1px dashed var(--border);
+  border-radius:var(--r);padding:20px 24px;
+  font-size:13px;color:var(--muted);line-height:1.6;
+  margin-bottom:48px;
+}
+.add-note code{font-family:'SF Mono','Cascadia Code',monospace;font-size:12px;background:var(--s2);padding:2px 6px;border-radius:4px}
+
+/* LOCATIONS */
+.loc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:48px}
+@media(min-width:600px){.loc-grid{grid-template-columns:repeat(4,1fr)}}
+.loc{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:20px;text-align:center;box-shadow:var(--sh);transition:transform .2s}
+.loc:hover{transform:translateY(-2px)}
+.loc-flag{font-size:28px;margin-bottom:8px}
+.loc-name{font-size:14px;font-weight:600;margin-bottom:3px}
+.loc-sub{font-size:12px;color:var(--muted)}
+
+/* GEAR */
+.gear{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:48px}
+@media(max-width:500px){.gear{grid-template-columns:1fr}}
+.gear-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:22px;box-shadow:var(--sh)}
+.gear-ic{font-size:22px;margin-bottom:10px}
+.gear-name{font-size:14px;font-weight:600;margin-bottom:4px}
+.gear-spec{font-size:12px;color:var(--muted);font-family:'SF Mono','Cascadia Code',monospace;line-height:1.6}
+
+.cta{background:#2e1a0e;color:#f0d9c0;border-radius:var(--r);padding:40px;text-align:center}
+.cta h3{font-family:'DM Serif Display',serif;font-size:28px;margin-bottom:8px}
+.cta p{font-size:14px;opacity:.65;margin-bottom:22px;line-height:1.65}
+.cta-btn{display:inline-block;padding:11px 26px;border-radius:50px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);color:#fff;font-size:13px;font-weight:600;transition:background .18s;font-family:'DM Sans',sans-serif}
+.cta-btn:hover{background:rgba(255,255,255,.22)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div style="display:flex;align-items:center;gap:10px">
+    <a class="nav-back" href="index.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Home
+    </a>
+    <span class="nav-title">Photography</span>
+  </div>
+  <button class="nav-btn" onclick="toggleTheme()">
+    <svg id="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+  </button>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <span class="hero-eyebrow">The Wandering Frame</span>
+    <h1 class="hero-title">Photo<em>graphy</em></h1>
+    <p class="hero-desc">Bandarban to Dhaka. Mountains, rivers, streets — chasing light and good stories across Bangladesh.</p>
+    <div class="exif-row">
+      <span class="exif">f/1.8</span>
+      <span class="exif">1/250s</span>
+      <span class="exif">ISO 400</span>
+      <span class="exif">Samsung Galaxy S23+</span>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="stats">
+    <div class="stat"><div class="stat-n">8+</div><div class="stat-l">Districts photographed</div></div>
+    <div class="stat"><div class="stat-n">2023</div><div class="stat-l">Bandarban trek — Kristong · Rungrang · Saingpra</div></div>
+    <div class="stat"><div class="stat-n">3</div><div class="stat-l">Genres: street · travel · landscape</div></div>
+  </div>
+
+  <span class="sec-label">Gallery</span>
+
+  <!-- TO ADD YOUR PHOTOS: Replace each div.g-placeholder with:
+       <img src="your-photo.jpg" alt="description" style="width:100%;display:block">
+  -->
+  <div class="gallery">
+
+    <div class="g-item">
+      <div class="g-placeholder" style="height:220px">🏔️</div>
+      <div class="g-meta"><div class="g-caption">Kristong Hills, Bandarban · Aug 2023</div><div class="g-exif">f/2.0 · 1/320s · ISO 200</div></div>
+    </div>
+
+    <div class="g-item">
+      <div class="g-placeholder" style="height:155px">🌊</div>
+      <div class="g-meta"><div class="g-caption">Saingpra Waterfall · Aug 2023</div><div class="g-exif">f/1.8 · 1/500s · ISO 100</div></div>
+    </div>
+
+    <div class="g-item">
+      <div class="g-placeholder" style="height:185px">🌆</div>
+      <div class="g-meta"><div class="g-caption">Kalyanpur, Dhaka · Street</div><div class="g-exif">f/1.8 · 1/250s · ISO 800</div></div>
+    </div>
+
+    <div class="g-item">
+      <div class="g-placeholder" style="height:255px">🌿</div>
+      <div class="g-meta"><div class="g-caption">Rungrang Valley · Aug 2023</div><div class="g-exif">f/2.2 · 1/400s · ISO 160</div></div>
+    </div>
+
+    <div class="g-item">
+      <div class="g-placeholder" style="height:170px">🎣</div>
+      <div class="g-meta"><div class="g-caption">Pirojpur Coast, Barishal</div><div class="g-exif">f/2.8 · 1/800s · ISO 100</div></div>
+    </div>
+
+    <div class="g-item">
+      <div class="g-placeholder" style="height:235px">🌅</div>
+      <div class="g-meta"><div class="g-caption">Buriganga River, Dhaka</div><div class="g-exif">f/1.8 · 1/1000s · ISO 50</div></div>
+    </div>
+
+    <div class="g-item">
+      <div class="g-placeholder" style="height:168px">🏘️</div>
+      <div class="g-meta"><div class="g-caption">Old Dhaka, Street</div><div class="g-exif">f/2.0 · 1/200s · ISO 640</div></div>
+    </div>
+
+    <div class="g-item">
+      <div class="g-placeholder" style="height:200px">🌄</div>
+      <div class="g-meta"><div class="g-caption">Bandarban Hill Road</div><div class="g-exif">f/1.8 · 1/350s · ISO 200</div></div>
+    </div>
+
+  </div>
+
+  <div class="add-note">
+    📷 <strong>To add your real photos:</strong> In each <code>.g-item</code>, replace the <code>div.g-placeholder</code> with <code>&lt;img src="assets/your-photo.jpg" alt="..." style="width:100%;display:block"&gt;</code> and put your image files in an <code>assets/</code> folder.
+  </div>
+
+  <span class="sec-label">Where I've pointed a lens</span>
+  <div class="loc-grid">
+    <div class="loc"><div class="loc-flag">🏔️</div><div class="loc-name">Bandarban</div><div class="loc-sub">Kristong · Rungrang · Saingpra</div></div>
+    <div class="loc"><div class="loc-flag">🌆</div><div class="loc-name">Dhaka</div><div class="loc-sub">Street · Old city · Buriganga</div></div>
+    <div class="loc"><div class="loc-flag">🌊</div><div class="loc-name">Barishal</div><div class="loc-sub">Pirojpur coast · Rivers</div></div>
+    <div class="loc"><div class="loc-flag">🏙️</div><div class="loc-name">Rajshahi</div><div class="loc-sub">PUST campus · Padma</div></div>
+  </div>
+
+  <span class="sec-label">The Kit</span>
+  <div class="gear">
+    <div class="gear-card"><div class="gear-ic">📱</div><div class="gear-name">Samsung Galaxy S23+</div><div class="gear-spec">50MP main · f/1.8 · OIS · 8K video<br>SM-S916N · Korean variant</div></div>
+    <div class="gear-card"><div class="gear-ic">🔧</div><div class="gear-name">Post-processing</div><div class="gear-spec">Lightroom Mobile · Snapseed<br>raw editing · colour grading</div></div>
+  </div>
+
+  <div class="cta">
+    <h3>Want to collaborate?</h3>
+    <p>Travel photography, storytelling collabs, anything involving mountains or the coast of Barishal.</p>
+    <a class="cta-btn" href="mailto:mdgolamkibriya@gmail.com">Say hello</a>
+  </div>
+
+</div>
+
+<script>
+const MOON=`<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>`;
+const SUN=`<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>`;
+let dark=false;
+function toggleTheme(){dark=!dark;document.documentElement.setAttribute('data-theme',dark?'dark':'light');document.getElementById('ti').innerHTML=dark?MOON:SUN}
+</script>
+</body>
+</html>
