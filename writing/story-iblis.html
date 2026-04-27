@@ -8,8 +8,18 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Hind+Siliguri:wght@300;400;500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
-:root{--bg:#060606;--s1:#0d0d0d;--s2:#141414;--s3:#1c1c1c;--border:rgba(255,255,255,.05);--text:#ddd8ce;--muted:#6b6560;--subtle:#302a24;--cream:#c8b890;--cream-dim:#6b5838;--r:12px;--pw:700px}
-[data-theme="light"]{--bg:#f9f6f0;--s1:#fffefc;--s2:#f9f6f0;--s3:#ede9e0;--border:rgba(0,0,0,.07);--text:#1a1714;--muted:#68635a;--subtle:#c0b8a5;--cream:#7a5c2a;--cream-dim:#c8a96e}
+:root{
+  --bg:#060606;--s1:#0d0d0d;--s2:#141414;--s3:#1c1c1c;
+  --border:rgba(255,255,255,.05);--text:#ddd8ce;
+  --muted:#6b6560;--subtle:#302a24;
+  --cream:#c8b890;--cream-dim:#6b5838;--r:12px;--pw:700px;
+}
+[data-theme="light"]{
+  --bg:#f9f6f0;--s1:#fffefc;--s2:#f9f6f0;--s3:#ede9e0;
+  --border:rgba(0,0,0,.07);--text:#1a1714;
+  --muted:#68635a;--subtle:#c0b8a5;
+  --cream:#7a5c2a;--cream-dim:#c8a96e;
+}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);transition:background .3s,color .3s;overflow-x:hidden}
@@ -17,24 +27,23 @@ a{color:inherit;text-decoration:none}
 body::after{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.45;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E")}
 
 .progress-bar{position:fixed;top:0;left:0;right:0;height:2px;background:var(--border);z-index:200}
-.progress-fill{height:100%;background:var(--cream);width:0%;transition:width .08s linear}
+.progress-fill{height:100%;background:var(--cream);width:0%}
 
-nav{position:sticky;top:0;z-index:99;display:flex;align-items:center;justify-content:space-between;padding:11px 24px;background:color-mix(in srgb,var(--bg) 88%,transparent);border-bottom:1px solid var(--border);backdrop-filter:blur(20px)}
+nav{position:sticky;top:0;z-index:99;display:flex;align-items:center;justify-content:space-between;padding:11px 24px;background:var(--s1);border-bottom:1px solid var(--border);backdrop-filter:blur(20px)}
 .nav-l{display:flex;align-items:center;gap:10px}
 .nav-back{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);background:var(--s2);border:1px solid var(--border);border-radius:8px;padding:5px 13px;transition:all .2s;letter-spacing:.3px;font-family:'Outfit',sans-serif}
-.nav-back:hover{color:var(--text);border-color:rgba(255,255,255,.13)}
+.nav-back:hover{color:var(--text);border-color:var(--subtle)}
 .nav-back svg{width:11px;height:11px}
-.nav-title{font-size:11px;color:var(--subtle);font-family:'Hind Siliguri',sans-serif;display:none}
-@media(min-width:500px){.nav-title{display:block}}
+.nav-title{font-size:11px;color:var(--subtle);font-family:'Hind Siliguri',sans-serif}
 .nav-r{display:flex;gap:7px}
 .nav-btn{width:32px;height:32px;border-radius:8px;border:1px solid var(--border);background:var(--s2);color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
-.nav-btn:hover{color:var(--text);border-color:rgba(255,255,255,.13)}
-.nav-btn svg{width:13px;height:13px}
+.nav-btn:hover{color:var(--text);border-color:var(--subtle)}
+.nav-btn svg{width:14px;height:14px}
+.font-label{font-size:11px;font-weight:500;font-family:'Outfit',sans-serif;letter-spacing:.5px}
 
-/* COVER */
 .cover{padding:96px 24px 80px;text-align:center;position:relative;z-index:1;border-bottom:1px solid var(--border)}
 .cover-kicker{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--cream);opacity:.7;margin-bottom:20px;display:block;font-family:'Outfit',sans-serif}
-.cover-title{font-family:'Hind Siliguri',sans-serif;font-size:clamp(36px,8vw,72px);font-weight:300;line-height:1.15;color:var(--text);margin-bottom:28px}
+.cover-title{font-family:'Hind Siliguri',sans-serif;font-size:clamp(36px,8vw,72px);font-weight:300;line-height:1.2;color:var(--text);margin-bottom:28px}
 .cover-author{font-size:13px;color:var(--muted);letter-spacing:.5px;margin-bottom:32px;font-family:'Hind Siliguri',sans-serif}
 .cover-tags{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
 .c-tag{font-size:10px;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:4px;border:1px solid var(--border);color:var(--muted);font-family:'Outfit',sans-serif}
@@ -47,41 +56,41 @@ nav{position:sticky;top:0;z-index:99;display:flex;align-items:center;justify-con
 .start-btn:hover{border-color:var(--cream-dim);background:rgba(200,184,144,.06)}
 .start-btn svg{width:12px;height:12px}
 
-/* CHAPTER NAV */
 .ch-nav-wrap{max-width:var(--pw);margin:0 auto;padding:48px 24px 0;position:relative;z-index:1}
 .ch-nav-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--subtle);margin-bottom:14px;display:block;font-family:'Outfit',sans-serif}
 .ch-links{display:flex;flex-direction:column;gap:2px}
 .ch-link{display:flex;align-items:center;justify-content:space-between;padding:13px 17px;border-radius:var(--r);border:1px solid var(--border);background:var(--s1);transition:all .2s}
-.ch-link:hover{border-color:rgba(255,255,255,.1);background:var(--s2)}
+.ch-link:hover{border-color:var(--subtle);background:var(--s2)}
 .ch-link-num{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--subtle);font-family:'Outfit',sans-serif}
 .ch-link-title{font-family:'Hind Siliguri',sans-serif;font-size:17px;color:var(--text)}
 .ch-link svg{width:13px;height:13px;color:var(--subtle)}
 
-/* PROSE */
 .prose-wrap{max-width:var(--pw);margin:0 auto;padding:64px 24px 100px;position:relative;z-index:1}
-.ch-head{margin-bottom:40px;padding-bottom:24px;border-bottom:1px solid var(--border);scroll-margin-top:80px}
+.ch-head{margin-bottom:36px;padding-bottom:22px;border-bottom:1px solid var(--border);scroll-margin-top:72px}
 .ch-kicker{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--cream);opacity:.65;margin-bottom:10px;display:block;font-family:'Outfit',sans-serif}
 .ch-title{font-family:'Hind Siliguri',sans-serif;font-size:clamp(24px,4vw,34px);font-weight:400;line-height:1.3;color:var(--text)}
-.prose{font-family:'Hind Siliguri',sans-serif;font-size:clamp(17px,2.2vw,20px);line-height:2;color:var(--text);font-weight:300}
+
+.prose{font-family:'Hind Siliguri',sans-serif;font-size:19px;line-height:2.05;color:var(--text);font-weight:300}
+body.fs-sm .prose{font-size:16px;line-height:1.95}
+body.fs-lg .prose{font-size:22px;line-height:2.1}
 .prose p{margin-bottom:1.5em}
 .prose p:last-child{margin-bottom:0}
 .prose .d{font-style:italic;color:var(--muted)}
 .prose .emph{font-style:italic}
-.break{text-align:center;color:var(--subtle);font-size:13px;margin:2.5em 0;letter-spacing:6px;font-family:'Outfit',sans-serif}
 
-.end-section{margin-top:72px;padding-top:40px;border-top:1px solid var(--border);text-align:center}
+.break{text-align:center;color:var(--subtle);font-size:13px;margin:2.5em 0;letter-spacing:5px;font-family:'Outfit',sans-serif}
+.chapter-gap{height:48px}
+
+.end-section{margin-top:64px;padding-top:36px;border-top:1px solid var(--border);text-align:center}
 .end-title{font-family:'Hind Siliguri',sans-serif;font-size:18px;color:var(--muted);margin-bottom:24px}
 .back-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;border-radius:8px;border:1px solid var(--border);color:var(--muted);font-size:12px;letter-spacing:.4px;transition:all .2s;font-family:'Outfit',sans-serif}
-.back-btn:hover{color:var(--text);border-color:rgba(255,255,255,.13)}
+.back-btn:hover{color:var(--text);border-color:var(--subtle)}
 .back-btn svg{width:12px;height:12px}
 
-.scroll-top{position:fixed;bottom:24px;right:24px;z-index:100;width:38px;height:38px;border-radius:10px;border:1px solid var(--border);background:var(--s1);color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;opacity:0;pointer-events:none;backdrop-filter:blur(12px)}
+.scroll-top{position:fixed;bottom:24px;right:24px;z-index:100;width:38px;height:38px;border-radius:10px;border:1px solid var(--border);background:var(--s1);color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s,opacity .3s;opacity:0;pointer-events:none}
 .scroll-top.show{opacity:1;pointer-events:all}
-.scroll-top:hover{color:var(--text)}
+.scroll-top:hover{color:var(--text);border-color:var(--subtle)}
 .scroll-top svg{width:13px;height:13px}
-
-.font-sm .prose{font-size:16px}
-.font-lg .prose{font-size:23px}
 </style>
 </head>
 <body>
@@ -97,11 +106,13 @@ nav{position:sticky;top:0;z-index:99;display:flex;align-items:center;justify-con
     <span class="nav-title">আমি আশেপাশেই থাকি</span>
   </div>
   <div class="nav-r">
-    <button class="nav-btn" onclick="cycleFont()" title="Font size">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><text x="3" y="18" font-size="15" fill="currentColor" stroke="none" font-family="Georgia,serif">A</text><text x="13" y="14" font-size="9" fill="currentColor" stroke="none" font-family="Georgia,serif">A</text></svg>
+    <button class="nav-btn" onclick="cycleFont()" title="Change font size">
+      <span class="font-label" id="fontLabel">Aa</span>
     </button>
-    <button class="nav-btn" onclick="toggleTheme()" title="Theme">
-      <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    <button class="nav-btn" id="themeBtn" onclick="toggleTheme()" title="Toggle theme">
+      <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
     </button>
   </div>
 </nav>
@@ -138,12 +149,18 @@ nav{position:sticky;top:0;z-index:99;display:flex;align-items:center;justify-con
 <div class="ch-nav-wrap">
   <span class="ch-nav-label">পর্বসমূহ</span>
   <div class="ch-links">
-    <a class="ch-link" href="#p1"><span><div class="ch-link-num">পর্ব ১</div><div class="ch-link-title">ঈদের নামাজে</div></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-    <a class="ch-link" href="#p2"><span><div class="ch-link-num">পর্ব ২</div><div class="ch-link-title">ঈদের সন্ধ্যায়</div></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    <a class="ch-link" href="#p1">
+      <span><div class="ch-link-num">পর্ব ১</div><div class="ch-link-title">ঈদের নামাজে</div></span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+    <a class="ch-link" href="#p2">
+      <span><div class="ch-link-num">পর্ব ২</div><div class="ch-link-title">ঈদের সন্ধ্যায়</div></span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
   </div>
 </div>
 
-<div class="prose-wrap" id="pw">
+<div class="prose-wrap">
 
   <div class="ch-head" id="p1">
     <span class="ch-kicker">পর্ব ১</span>
@@ -166,6 +183,7 @@ nav{position:sticky;top:0;z-index:99;display:flex;align-items:center;justify-con
   </div>
 
   <div class="break">&mdash;&nbsp;&nbsp;&mdash;&nbsp;&nbsp;&mdash;</div>
+  <div class="chapter-gap"></div>
 
   <div class="ch-head" id="p2">
     <span class="ch-kicker">পর্ব ২</span>
@@ -173,8 +191,8 @@ nav{position:sticky;top:0;z-index:99;display:flex;align-items:center;justify-con
   </div>
   <div class="prose">
     <p>ঈদের দিন বাসার সবার কথা অনেক মনে পড়লো, সারাদিন ঘুমিয়ে সন্ধ্যায় বের হলাম ঘুরতে। রাস্তায় যেয়ে দেখি মসজিদের সামনে বিশাল বড় দুইটা ফায়ার সার্ভিসের গাড়ি। ঈদের মাঠের সামিয়ানা, বাঁশ এগুলো পুড়ে শেষ। কি হয়েছে জানতে পাশে দাঁড়ানো এক লোককে জিজ্ঞেস করলাম।</p>
-    <p>উনি যা বললো টা হলো — হোসাইন সাহেবের একটা পালতু কুকুর নাকি দুপুরবেলায় এখানে একটা বাঁশের গায়ে কি লেগে ছিল ওটা খাচ্ছিল, প্রথমে ওই কুকুরকে মসজিদের ইমাম ডাক দিলেও কুকুর পাত্তা দেইনি, বরং একটু পর নাকি এক পা দাঁড়া করে ওই বাঁশের ওপরেই প্রস্রাব করেছে। ঈদের নামাজের চাদর তখনো উঠানো হয়নি, যার ফলে এবার চাদর নষ্ট করার দায়ে ইমাম তেড়ে এসে মেরেছে সেই কুকুরকে এক লাথি। আর কুকুরেরও কি কপাল, এক লাথি খেয়ে নাকি ওর পাঁজরের হাড় ভেঙে ১০ মিনিটের মধ্যে সেই কুকুর সেখানেই মারা পড়েছে। আর ফলে প্রথমে হোসাইন সাহেবের সাথে ইমামের, এবং পরে মসজিদ কমিটির সাথে হোসাইন সাহেব আর তার ছেলেপুলের একচোট হাতাহাতি হয়।</p>
-    <p>বলাই বাহুল্য হোসাইন সাহেবের মতো নতুন উঠতি নেতার সাথে লাগতে যাওয়াই যে একটা বোকামি — টা এখানের সবারই জানার কথা। কিন্তু যা হবার টা ততক্ষণে হয়ে গেছে। ওনার ছেলেপুলে অল্পকিছুখনের মধ্যে প্রথমে ইমামের মাথা ফাটালো, পড়ে ওই খানের সব বাঁশ আর সামিয়ানা এক জায়গায় করে দিলো আগুন। আগুন এতই বিশাল হয়েছে যে, দমকল বাহিনীকে ডাকতে বাধ্য হয়েছে মানুষ।</p>
+    <p>উনি যা বললো টা হলো — হোসাইন সাহেবের একটা পালতু কুকুর নাকি দুপুরবেলায় এখানে একটা বাঁশের গায়ে কি লেগে ছিল ওটা খাচ্ছিল, প্রথমে ওই কুকুরকে মসজিদের ইমাম ডাক দিলেও কুকুর পাত্তা দেইনি, বরং একটু পর নাকি এক পা দাঁড়া করে ওই বাঁশের ওপরেই প্রস্রাব করেছে। ঈদের নামাজের চাদর তখনো উঠানো হয়নি, যার ফলে এবার চাদর নষ্ট করার দায়ে ইমাম তেড়ে এসে মেরেছে সেই কুকুরকে এক লাথি। আর কুকুরেরও কি কপাল, এক লাথি খেয়ে নাকি ওর পাঁজরের হাড় ভেঙে ১০ মিনিটের মধ্যে সেই কুকুর সেখানেই মারা পড়েছে।</p>
+    <p>আর ফলে প্রথমে হোসাইন সাহেবের সাথে ইমামের, এবং পরে মসজিদ কমিটির সাথে হোসাইন সাহেব আর তার ছেলেপুলের একচোট হাতাহাতি হয়। বলাই বাহুল্য হোসাইন সাহেবের মতো নতুন উঠতি নেতার সাথে লাগতে যাওয়াই যে একটা বোকামি — টা এখানের সবারই জানার কথা। কিন্তু যা হবার টা ততক্ষণে হয়ে গেছে। ওনার ছেলেপুলে অল্পকিছুখনের মধ্যে প্রথমে ইমামের মাথা ফাটালো, পড়ে ওই খানের সব বাঁশ আর সামিয়ানা এক জায়গায় করে দিলো আগুন। আগুন এতই বিশাল হয়েছে যে, দমকল বাহিনীকে ডাকতে বাধ্য হয়েছে মানুষ।</p>
     <p>আমি এই সব কাহিনী শুনছি আর ভাবছি ঈদের দিনটা তাহলে একদম সাদামাটা যায়নি তাহলে। দূরে তাকিয়ে দেখি সকালের সেই ভদ্র লোক হাতে কতগুলো আইসক্রিম নিয়ে দাঁড়িয়ে আছেন, সামনে বাচ্চা কাচ্চার একটা ছোট দল। আগুন দেখতে যেসব বাচ্চারা এসেছে তাদেরই আইসক্রিম বিলি করছেন। আমার দিকে চোখ পড়তে এগিয়ে এলেন।</p>
     <p class="d">"দেখলেন কেমন কারবার?"</p>
     <p>আমি কিছু না বলে মুচকি হাসলাম, আর তখনই মনে পড়লো — ওনার লাগানো সকালের আচার খেতেই ওই কুকুর ওখানে এসেছিল, আর তার থেকেই এই কাণ্ড। ভদ্রলোকের দোষ দেয়া যায় না। তবে কিছু দূরে দাঁড়িয়ে এক বয়স্ক লোককে দেখে মায়া লাগলো। এই তবু ওনার দোকান থেকে ভাড়ায় আনা। এখন যা অবস্থা, না মসজিদ কমিটি তাকে এই ক্ষতি পূরণ দিবে, না হোসাইন সাহেবের ছেলেপিলে।</p>
@@ -201,13 +219,37 @@ nav{position:sticky;top:0;z-index:99;display:flex;align-items:center;justify-con
 </button>
 
 <script>
-const MOON=`<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>`;
-const SUN=`<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>`;
-let dark=true;
-function toggleTheme(){dark=!dark;document.documentElement.setAttribute('data-theme',dark?'dark':'light');document.getElementById('themeIcon').innerHTML=dark?SUN:MOON;}
-const sizes=['','font-sm','font-lg'];let si=0;
-function cycleFont(){document.getElementById('pw').classList.remove(sizes[si]);si=(si+1)%3;if(sizes[si])document.getElementById('pw').classList.add(sizes[si]);}
-window.addEventListener('scroll',()=>{const d=document.documentElement;const p=(d.scrollTop/(d.scrollHeight-d.clientHeight))*100;document.getElementById('pf').style.width=p+'%';document.getElementById('stBtn').classList.toggle('show',d.scrollTop>400);});
+/* THEME */
+let dark = true;
+function toggleTheme() {
+  dark = !dark;
+  document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+  document.getElementById('themeIcon').innerHTML = dark
+    ? '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>'
+    : '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
+}
+
+/* FONT SIZE */
+const fontStates = [
+  { cls: '',       label: 'Aa' },
+  { cls: 'fs-sm',  label: 'A-' },
+  { cls: 'fs-lg',  label: 'A+' },
+];
+let fontIdx = 0;
+function cycleFont() {
+  document.body.classList.remove(fontStates[fontIdx].cls);
+  fontIdx = (fontIdx + 1) % fontStates.length;
+  if (fontStates[fontIdx].cls) document.body.classList.add(fontStates[fontIdx].cls);
+  document.getElementById('fontLabel').textContent = fontStates[fontIdx].label;
+}
+
+/* SCROLL */
+window.addEventListener('scroll', () => {
+  const d = document.documentElement;
+  const pct = (d.scrollTop / (d.scrollHeight - d.clientHeight)) * 100;
+  document.getElementById('pf').style.width = pct + '%';
+  document.getElementById('stBtn').classList.toggle('show', d.scrollTop > 500);
+});
 </script>
 </body>
 </html>
