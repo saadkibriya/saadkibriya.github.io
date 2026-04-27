@@ -1,230 +1,250 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Writing — Kibriya</title>
+<title>Writing — Md Golam Kibriya</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
 :root{
-  --bg:#eceae5;--surface:#f7f5f2;--s2:#eceae5;
-  --border:rgba(0,0,0,.07);--text:#1a1917;--muted:#6b6860;--subtle:#a09d97;
-  --accent:#5b3d8a;--accent-bg:#ddd0f0;
-  --r:20px;--sh:0 1px 2px rgba(0,0,0,.05),0 2px 14px rgba(0,0,0,.05);
+  --bg:#060606;--s1:#0d0d0d;--s2:#141414;--s3:#1d1d1d;
+  --border:rgba(255,255,255,.055);--text:#e0dbd2;
+  --muted:#6e6860;--subtle:#38322c;
+  --cream:#c8b890;--cream-dim:#6b5838;--r:14px;
 }
-[data-theme=dark]{
-  --bg:#141312;--surface:#1e1d1b;--s2:#252321;
-  --border:rgba(255,255,255,.06);--text:#f0ede8;--muted:#9e9b94;--subtle:#5a5752;
-  --accent-bg:#1e1630;
+[data-theme="light"]{
+  --bg:#f6f3ed;--s1:#fdfcf9;--s2:#f6f3ed;--s3:#ede9df;
+  --border:rgba(0,0,0,.07);--text:#18150f;
+  --muted:#6a6258;--subtle:#c0b8a5;
+  --cream:#7a5c2a;--cream-dim:#c8a96e;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);transition:background .3s,color .3s;line-height:1.6}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;transition:background .3s,color .3s;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
+body::after{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E")}
 
-nav{position:sticky;top:0;z-index:99;display:flex;align-items:center;justify-content:space-between;padding:10px 24px;background:color-mix(in srgb,var(--surface) 88%,transparent);border-bottom:1px solid var(--border);backdrop-filter:blur(18px)}
-.nav-back{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:500;color:var(--muted);background:var(--s2);border:1px solid var(--border);border-radius:10px;padding:5px 13px;transition:all .18s}
-.nav-back:hover{color:var(--text);background:var(--border)}
+nav{position:sticky;top:0;z-index:99;display:flex;align-items:center;justify-content:space-between;padding:11px 28px;background:color-mix(in srgb,var(--bg) 86%,transparent);border-bottom:1px solid var(--border);backdrop-filter:blur(20px)}
+.nav-l{display:flex;align-items:center;gap:12px}
+.nav-back{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);background:var(--s2);border:1px solid var(--border);border-radius:8px;padding:5px 13px;transition:all .2s;letter-spacing:.3px}
+.nav-back:hover{color:var(--text);border-color:rgba(255,255,255,.14)}
 .nav-back svg{width:12px;height:12px}
-.nav-title{font-size:13px;color:var(--subtle)}
-.nav-btn{width:32px;height:32px;border-radius:10px;border:none;background:var(--s2);color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .18s}
-.nav-btn svg{width:15px;height:15px}
+.nav-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--subtle)}
+.nav-btn{width:33px;height:33px;border-radius:8px;border:1px solid var(--border);background:var(--s2);color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.nav-btn:hover{color:var(--text);border-color:rgba(255,255,255,.14)}
+.nav-btn svg{width:14px;height:14px}
 
-.hero{background:#1a0e2e;padding:80px 24px 60px;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 60%,rgba(91,61,138,.45),transparent 55%)}
-.hero::after{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");pointer-events:none}
-.hero-inner{max-width:800px;margin:0 auto;position:relative;z-index:1}
-.hero-eyebrow{font-size:10px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:18px;display:block}
-.hero-title{font-family:'DM Serif Display',serif;font-size:clamp(38px,7vw,72px);line-height:1.05;letter-spacing:-2px;color:#fff;margin-bottom:20px}
-.hero-title em{font-style:italic;color:rgba(255,255,255,.5)}
-.hero-desc{font-size:16px;color:rgba(255,255,255,.6);max-width:520px;line-height:1.75}
+/* HERO */
+.hero{padding:90px 28px 72px;position:relative;z-index:1;max-width:900px;margin:0 auto}
+.hero-eyebrow{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--cream);opacity:.75;margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.hero-eyebrow::after{content:'';height:1px;width:60px;background:var(--cream-dim);opacity:.5}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(48px,8vw,92px);line-height:.98;letter-spacing:-2px;color:var(--text);font-weight:300;margin-bottom:40px}
+.hero-title em{font-style:italic;color:var(--muted)}
 
-.wrap{max-width:800px;margin:0 auto;padding:56px 24px 100px}
-.sec-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--subtle);margin-bottom:20px;display:block}
+/* BIO */
+.bio-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:64px}
+@media(max-width:700px){.bio-grid{grid-template-columns:1fr;gap:24px}}
+.bio-block{font-size:15px;line-height:1.82;color:var(--muted);font-weight:300}
+.bio-block p+p{margin-top:14px}
+.bio-block strong{color:var(--text);font-weight:500}
+.bio-block em{font-style:italic;color:var(--cream);opacity:.85}
 
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:48px}
-@media(max-width:540px){.stats{grid-template-columns:1fr}}
-.stat{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:22px;box-shadow:var(--sh)}
-.stat-n{font-family:'DM Serif Display',serif;font-size:36px;letter-spacing:-2px;line-height:1}
-.stat-l{font-size:12px;color:var(--muted);margin-top:5px;line-height:1.4}
-
-/* STORY CARDS */
-.story{
-  background:var(--surface);border:1px solid var(--border);
-  border-radius:var(--r);padding:28px;margin-bottom:12px;
-  box-shadow:var(--sh);transition:transform .2s,box-shadow .2s;
-  position:relative;overflow:hidden;cursor:default;
-}
-.story::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent);border-radius:3px 0 0 3px}
-.story:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.09)}
-.story-genre{
-  display:inline-flex;align-items:center;gap:5px;
-  font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
-  color:var(--accent);background:var(--accent-bg);
-  padding:3px 10px;border-radius:6px;margin-bottom:14px;
-}
-[data-theme=dark] .story-genre{color:#b39dd6}
-.story-title{font-family:'DM Serif Display',serif;font-size:22px;line-height:1.25;letter-spacing:-.3px;margin-bottom:12px}
-.story-excerpt{
-  font-size:15px;color:var(--muted);line-height:1.8;
-  margin-bottom:14px;font-style:italic;
-  border-left:2px solid var(--border);padding-left:16px;
-}
-.story-meta{font-size:12px;color:var(--subtle);display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.story-lang{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:5px;border:1px solid var(--border);font-size:11px;font-weight:500;color:var(--muted)}
-.story-status{display:inline-flex;align-items:center;gap:4px}
-.sdot{width:5px;height:5px;border-radius:50%;background:var(--accent);display:inline-block}
-
-/* STYLE GRID */
-.style-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:48px}
-@media(max-width:540px){.style-grid{grid-template-columns:1fr}}
-.style-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:24px;box-shadow:var(--sh)}
-.style-ic{font-size:26px;margin-bottom:12px}
-.style-n{font-size:15px;font-weight:600;margin-bottom:6px}
-.style-d{font-size:13px;color:var(--muted);line-height:1.65}
+/* INFLUENCE ROW */
+.influence-row{margin-bottom:64px}
+.inf-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--subtle);margin-bottom:16px;display:block}
+.inf-chips{display:flex;flex-wrap:wrap;gap:6px}
+.inf-chip{font-size:11px;letter-spacing:.3px;padding:5px 13px;border-radius:6px;border:1px solid var(--border);color:var(--muted);transition:all .2s;cursor:default}
+.inf-chip:hover{color:var(--text);border-color:rgba(255,255,255,.14)}
+.inf-chip.key{border-color:var(--cream-dim);color:var(--cream);opacity:.8}
 
 /* PULL QUOTE */
-.pull{
-  background:var(--accent-bg);
-  border-left:3px solid var(--accent);
-  border-radius:0 var(--r) var(--r) 0;
-  padding:28px 28px 28px 32px;
-  margin-bottom:48px;
-}
-[data-theme=dark] .pull{border-color:#9b7dd6}
-.pull blockquote{font-family:'DM Serif Display',serif;font-style:italic;font-size:22px;line-height:1.55;color:var(--text)}
-.pull cite{display:block;font-size:12px;color:var(--muted);margin-top:10px;font-style:normal}
+.pull{border-left:1px solid var(--cream-dim);padding:4px 0 4px 28px;margin-bottom:64px}
+.pull blockquote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(20px,3vw,26px);line-height:1.55;color:var(--text);font-weight:300}
+.pull cite{display:block;font-size:11px;color:var(--subtle);margin-top:12px;letter-spacing:.5px;font-style:normal}
 
-/* INFLUENCES */
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:48px}
-.chip{padding:7px 15px;border-radius:50px;border:1px solid var(--border);background:var(--surface);font-size:13px;color:var(--muted);box-shadow:var(--sh);transition:all .18s;cursor:default}
-.chip:hover{background:var(--text);color:var(--bg);border-color:var(--text)}
+/* STORY CARDS */
+.stories-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--subtle);margin-bottom:20px;display:block}
+.stories{display:flex;flex-direction:column;gap:3px;margin-bottom:56px}
+.story-card{display:grid;grid-template-columns:1fr auto;align-items:stretch;background:var(--s1);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:border-color .22s,transform .22s,box-shadow .22s}
+.story-card:hover{border-color:rgba(200,184,144,.3);transform:translateY(-2px);box-shadow:0 14px 44px rgba(0,0,0,.35)}
+.story-body{padding:30px 34px}
+.story-num{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--subtle);margin-bottom:12px;display:block}
+.story-title{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,3.5vw,36px);font-weight:300;letter-spacing:-.5px;line-height:1.1;color:var(--text);margin-bottom:6px}
+.story-byline{font-size:11px;letter-spacing:.5px;color:var(--subtle);margin-bottom:18px}
+.story-excerpt{font-size:14px;line-height:1.8;color:var(--muted);font-style:italic;border-left:1px solid var(--border);padding-left:16px;margin-bottom:20px}
+.story-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:22px}
+.s-tag{font-size:10px;letter-spacing:.8px;text-transform:uppercase;padding:3px 9px;border-radius:4px;border:1px solid var(--border);color:var(--muted)}
+.s-tag.horror{border-color:rgba(160,60,40,.35);color:rgba(210,120,100,.75)}
+.s-tag.paranormal{border-color:rgba(100,80,160,.35);color:rgba(160,140,210,.75)}
+.s-tag.bangla{border-color:rgba(80,140,80,.35);color:rgba(110,190,110,.75)}
+[data-theme="light"] .s-tag.horror{color:rgba(140,40,20,.8);border-color:rgba(140,40,20,.25)}
+[data-theme="light"] .s-tag.paranormal{color:rgba(80,60,160,.8);border-color:rgba(80,60,160,.25)}
+[data-theme="light"] .s-tag.bangla{color:rgba(40,110,40,.8);border-color:rgba(40,110,40,.25)}
+.read-link{display:inline-flex;align-items:center;gap:8px;font-size:12px;color:var(--cream);letter-spacing:.4px;transition:gap .18s}
+.story-card:hover .read-link{gap:13px}
+.read-link svg{width:13px;height:13px}
+.story-aside{min-width:100px;display:flex;align-items:center;justify-content:center;padding:24px 20px;border-left:1px solid var(--border)}
+.aside-text{writing-mode:vertical-rl;transform:rotate(180deg);font-size:10px;letter-spacing:1.8px;text-transform:uppercase;color:var(--subtle);white-space:nowrap}
+@media(max-width:560px){.story-card{grid-template-columns:1fr}.story-aside{display:none}.story-body{padding:22px}}
 
-.cta{background:#1a0e2e;color:#ddd0f0;border-radius:var(--r);padding:40px;text-align:center}
-.cta h3{font-family:'DM Serif Display',serif;font-size:28px;margin-bottom:8px}
-.cta p{font-size:14px;opacity:.65;margin-bottom:22px;line-height:1.65}
-.cta-btn{display:inline-block;padding:11px 26px;border-radius:50px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);color:#fff;font-size:13px;font-weight:600;transition:background .18s;font-family:'DM Sans',sans-serif}
-.cta-btn:hover{background:rgba(255,255,255,.22)}
+/* GOOGLE DOCS AUTO-IMPORT NOTICE */
+.auto-notice{background:var(--s1);border:1px solid var(--border);border-radius:var(--r);padding:28px 30px;margin-bottom:56px;display:flex;gap:20px;align-items:flex-start}
+.notice-icon{width:38px;height:38px;flex-shrink:0;border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--subtle)}
+.notice-icon svg{width:16px;height:16px}
+.notice-text h4{font-size:13px;font-weight:500;margin-bottom:6px}
+.notice-text p{font-size:12px;color:var(--muted);line-height:1.7}
+.notice-text code{font-size:11px;background:var(--s3);padding:1px 6px;border-radius:3px;color:var(--cream);font-family:'SF Mono','Cascadia Code',monospace}
+
+/* COMING SOON */
+.coming{background:var(--s1);border:1px dashed var(--border);border-radius:var(--r);padding:28px 32px;display:flex;gap:18px;align-items:center}
+.coming-icon{width:38px;height:38px;flex-shrink:0;border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--subtle)}
+.coming-icon svg{width:15px;height:15px}
+.coming h4{font-size:13px;font-weight:500;margin-bottom:5px}
+.coming p{font-size:12px;color:var(--muted);line-height:1.65}
+
+.page-footer{max-width:900px;margin:60px auto 0;padding:28px 28px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;position:relative;z-index:1}
+.footer-text{font-size:11px;color:var(--subtle);letter-spacing:.4px}
+.footer-link{display:inline-flex;align-items:center;gap:7px;font-size:12px;color:var(--muted);transition:color .2s}
+.footer-link:hover{color:var(--cream)}
+.footer-link svg{width:13px;height:13px}
 </style>
 </head>
 <body>
 
 <nav>
-  <div style="display:flex;align-items:center;gap:10px">
+  <div class="nav-l">
     <a class="nav-back" href="index.html">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
       Home
     </a>
-    <span class="nav-title">Writing</span>
+    <span class="nav-label">Writing</span>
   </div>
-  <button class="nav-btn" onclick="toggleTheme()">
-    <svg id="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+  <button class="nav-btn" onclick="toggleTheme()" title="Theme">
+    <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
   </button>
 </nav>
 
 <div class="hero">
-  <div class="hero-inner">
-    <span class="hero-eyebrow">The Dark Scribe</span>
-    <h1 class="hero-title">Writ<em>ing</em></h1>
-    <p class="hero-desc">Horror. Paranormal. Thriller. Stories that stay with you longer than they should — in Bangla and English both.</p>
-  </div>
-</div>
+  <div class="hero-eyebrow">The Dark Scribe</div>
+  <h1 class="hero-title">Dark<br><em>Fiction</em></h1>
 
-<div class="wrap">
-
-  <div class="stats">
-    <div class="stat"><div class="stat-n">2</div><div class="stat-l">Languages — Bangla & English</div></div>
-    <div class="stat"><div class="stat-n">3+</div><div class="stat-l">Genres: horror · thriller · paranormal</div></div>
-    <div class="stat"><div class="stat-n">∞</div><div class="stat-l">3AM ideas that seemed great at the time</div></div>
-  </div>
-
-  <span class="sec-label">Works</span>
-
-  <div class="story">
-    <span class="story-genre">🩸 Horror · Bangla</span>
-    <div class="story-title">শেষ রাতের আওয়াজ</div>
-    <div class="story-excerpt">সে রাতে বাড়িটা ছিল নিঃশব্দ। কিন্তু দেওয়ালগুলো শুনছিল।</div>
-    <div class="story-meta">
-      <span class="story-lang">🇧🇩 Bangla</span>
-      <span class="story-status"><span class="sdot"></span> Short story · In progress</span>
+  <div class="bio-grid">
+    <div class="bio-block">
+      <p>Before I could write, I was already <strong>collecting stories</strong>. Not in notebooks — in the dark. Grandmother's voice dropping to a whisper when the story turned. The creak of a wooden house at 2 AM that nobody explained. The feeling that something in the fog outside the window was listening back.</p>
+      <p>I grew up on <strong>Humayun Ahmed's Misir Ali</strong> and the quiet dread of Himu wandering Dhaka at night. On <em>Sunday Suspense</em> playing through a phone speaker under the covers. On Tin Goyenda, Feluda, Masud Rana, Bomkesh — every detective who trusted instinct over evidence. On Agatha Christie's impossible murders and Edgar Allan Poe's rooms that breathed. On Lovecraft's monsters that weren't monsters so much as <em>facts the human mind refuses to accept.</em></p>
     </div>
-  </div>
-
-  <div class="story">
-    <span class="story-genre">👁️ Paranormal · English</span>
-    <div class="story-title">The Third Floor Doesn't Exist</div>
-    <div class="story-excerpt">The building had twelve floors. The elevator had thirteen buttons. Nobody ever talked about that.</div>
-    <div class="story-meta">
-      <span class="story-lang">🇬🇧 English</span>
-      <span class="story-status"><span class="sdot"></span> Flash fiction · Draft</span>
+    <div class="bio-block">
+      <p>I read Harry Potter and then I read <strong>everything else</strong>. DC and Marvel taught me that origin stories matter — that what breaks you is exactly what makes you. Sherlock Holmes taught me that the thing everyone ignores is usually the most important thing in the room.</p>
+      <p>By the time I started writing, I wasn't starting — I was <strong>translating</strong>. The stories had been accumulating for twenty-something years. The horror, the paranormal, the characters who feel slightly wrong in ways you can't immediately name. I write in Bangla and English because some stories sound more dangerous in one language than the other. I'm still figuring out which is which.</p>
+      <p>Most of what I write starts as a <strong>3 AM thought</strong> that seemed unreasonable and turned out to be the whole story.</p>
     </div>
-  </div>
-
-  <div class="story">
-    <span class="story-genre">🔪 Thriller · Bangla</span>
-    <div class="story-title">পরিচয়</div>
-    <div class="story-excerpt">লোকটা আমার নাম ধরে ডেকেছিল। আমি তাকে কখনো চিনিনি।</div>
-    <div class="story-meta">
-      <span class="story-lang">🇧🇩 Bangla</span>
-      <span class="story-status"><span class="sdot"></span> Short story · Outline done</span>
-    </div>
-  </div>
-
-  <div class="story">
-    <span class="story-genre">🌙 Paranormal · English</span>
-    <div class="story-title">What Leo Hears at 3AM</div>
-    <div class="story-excerpt">He'd bark at the corner of the living room every night. Same corner. Same time. There was nothing there. There was never anything there.</div>
-    <div class="story-meta">
-      <span class="story-lang">🇬🇧 English</span>
-      <span class="story-status"><span class="sdot"></span> In progress · based on true events</span>
-    </div>
-  </div>
-
-  <div style="height:48px"></div>
-
-  <span class="sec-label">How I Write</span>
-  <div class="style-grid">
-    <div class="style-card"><div class="style-ic">🌑</div><div class="style-n">Atmospheric dread</div><div class="style-d">The horror is in what's not said. The silence between sentences. The detail that's just slightly wrong.</div></div>
-    <div class="style-card"><div class="style-ic">🧍</div><div class="style-n">Unreliable narrators</div><div class="style-d">The story you're reading might not be the story that happened. The reader figures it out before the narrator does.</div></div>
-    <div class="style-card"><div class="style-ic">🌏</div><div class="style-n">Bangladeshi roots</div><div class="style-d">Folklore, monsoons, rivers, rickshaws, load-shedding at midnight. The setting is never neutral.</div></div>
-    <div class="style-card"><div class="style-ic">😏</div><div class="style-n">Dark humour</div><div class="style-d">Even horror needs a Chandler Bing moment. Wit is a coping mechanism — in fiction and in life.</div></div>
   </div>
 
   <div class="pull">
-    <blockquote>The scariest things are the ones that make perfect sense in the morning — and still scare you anyway.</blockquote>
-    <cite>— on why I write horror, probably</cite>
+    <blockquote>"The scariest things are the ones that make perfect sense in the morning &mdash; and still scare you anyway."</blockquote>
+    <cite>On writing horror &middot; Md Golam Kibriya</cite>
   </div>
 
-  <span class="sec-label">Influences & Obsessions</span>
-  <div class="chips">
-    <span class="chip">Humayun Ahmed</span>
-    <span class="chip">Himu series</span>
-    <span class="chip">Stephen King</span>
-    <span class="chip">One Piece</span>
-    <span class="chip">Bengali folklore</span>
-    <span class="chip">Chandler Bing</span>
-    <span class="chip">3AM thoughts</span>
-    <span class="chip">True crime podcasts</span>
-    <span class="chip">Wandering alone</span>
-    <span class="chip">Chess endgames</span>
-    <span class="chip">Leo being weird at 3AM</span>
+  <span class="inf-label">Built on the shoulders of</span>
+  <div class="influence-row">
+    <div class="inf-chips">
+      <span class="inf-chip key">Humayun Ahmed</span>
+      <span class="inf-chip key">Misir Ali</span>
+      <span class="inf-chip key">H.P. Lovecraft</span>
+      <span class="inf-chip key">Edgar Allan Poe</span>
+      <span class="inf-chip">Agatha Christie</span>
+      <span class="inf-chip">Himu</span>
+      <span class="inf-chip">Feluda</span>
+      <span class="inf-chip">Tin Goyenda</span>
+      <span class="inf-chip">Masud Rana</span>
+      <span class="inf-chip">Bomkesh Bakshi</span>
+      <span class="inf-chip">Sherlock Holmes</span>
+      <span class="inf-chip">Harry Potter</span>
+      <span class="inf-chip">DC &amp; Marvel</span>
+      <span class="inf-chip key">Sunday Suspense</span>
+      <span class="inf-chip">Grandmother's voice at 2 AM</span>
+    </div>
+  </div>
+</div>
+
+<div style="max-width:900px;margin:0 auto;padding:0 28px 100px;position:relative;z-index:1">
+
+  <span class="stories-label">Stories</span>
+  <div class="stories">
+
+    <a class="story-card" href="story-inheritance.html">
+      <div class="story-body">
+        <span class="story-num">No. 01 &mdash; English</span>
+        <h2 class="story-title">The Inheritance</h2>
+        <div class="story-byline">Md Golam Kibriya &middot; Horror &middot; 4 Chapters</div>
+        <p class="story-excerpt">The city had begun to suffocate Gautam. His pictures were ghosts. Perfectly framed, perfectly lit, and utterly lifeless. This artistic emptiness drove him to seek a cure in the forgotten village of Nijhumdanga — where the shadows had learned to move on their own.</p>
+        <div class="story-tags">
+          <span class="s-tag horror">Horror</span>
+          <span class="s-tag paranormal">Paranormal</span>
+          <span class="s-tag">Short Story</span>
+          <span class="s-tag">Complete</span>
+        </div>
+        <span class="read-link">Read story <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </div>
+      <div class="story-aside"><span class="aside-text">4 Chapters &middot; Complete</span></div>
+    </a>
+
+    <a class="story-card" href="story-iblis.html">
+      <div class="story-body">
+        <span class="story-num">No. 02 &mdash; বাংলা</span>
+        <h2 class="story-title">আমি আশেপাশেই থাকি</h2>
+        <div class="story-byline">মোঃ গোলাম কিবরিয়া &middot; Paranormal &middot; 2 Parts</div>
+        <p class="story-excerpt">নতুন এক শহরে চাকরি হয়েছে। একা একা এই প্রথম ঈদ আমার। ঈদের নামাজে গেলাম একদম শেষ মুহূর্তে — আর পাশে দাঁড়ানো লোকটার গা থেকে একটা হালকা কটু গন্ধ নাকে আসছে। কে এই লোক?</p>
+        <div class="story-tags">
+          <span class="s-tag horror">Horror</span>
+          <span class="s-tag bangla">বাংলা</span>
+          <span class="s-tag paranormal">Paranormal</span>
+          <span class="s-tag">Complete</span>
+        </div>
+        <span class="read-link">পড়ুন <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </div>
+      <div class="story-aside"><span class="aside-text">2 Parts &middot; Complete</span></div>
+    </a>
+
   </div>
 
-  <div class="cta">
-    <h3>Read something you liked?</h3>
-    <p>Or something you didn't. Either way — let's talk about it.</p>
-    <a class="cta-btn" href="mailto:mdgolamkibriya@gmail.com">Say something</a>
+  <!-- HOW TO ADD NEW STORIES (Google Docs workflow) -->
+  <div class="auto-notice">
+    <div class="notice-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+    </div>
+    <div class="notice-text">
+      <h4>Adding a new story — minimal work, always</h4>
+      <p>When you finish a story: write it in Google Docs or Keep → copy the text → open the story template file (<code>story-template.html</code>, included in your download) → paste the text in the marked sections → rename the file (e.g. <code>story-new.html</code>) → upload to GitHub alongside the others → add a card here linking to it. That's the entire process. No CMS, no backend, no subscriptions.</p>
+    </div>
   </div>
 
+  <div class="coming">
+    <div class="coming-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+    </div>
+    <div>
+      <h4>More stories being written</h4>
+      <p>Horror, paranormal, thriller &mdash; in Bangla and English. Some started at 3 AM and some were started by 3 AM. Check back, or reach out if you want to be notified when something new drops.</p>
+    </div>
+  </div>
+
+  <div class="page-footer" style="margin:60px 0 0;padding:28px 0">
+    <span class="footer-text">Dark Fiction &middot; Horror &middot; Paranormal &middot; Bangla &amp; English</span>
+    <a class="footer-link" href="mailto:mdgolamkibriya@gmail.com">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      Get in touch
+    </a>
+  </div>
 </div>
 
 <script>
 const MOON=`<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>`;
 const SUN=`<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>`;
-let dark=false;
-function toggleTheme(){dark=!dark;document.documentElement.setAttribute('data-theme',dark?'dark':'light');document.getElementById('ti').innerHTML=dark?MOON:SUN}
+let dark=true;
+function toggleTheme(){dark=!dark;document.documentElement.setAttribute('data-theme',dark?'dark':'light');document.getElementById('themeIcon').innerHTML=dark?SUN:MOON;}
 </script>
 </body>
 </html>
