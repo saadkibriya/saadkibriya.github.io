@@ -8,8 +8,18 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
-:root{--bg:#060606;--s1:#0d0d0d;--s2:#141414;--s3:#1c1c1c;--border:rgba(255,255,255,.05);--text:#ddd8ce;--muted:#6b6560;--subtle:#302a24;--cream:#c8b890;--cream-dim:#6b5838;--r:12px;--pw:680px}
-[data-theme="light"]{--bg:#f9f6f0;--s1:#fffefc;--s2:#f9f6f0;--s3:#ede9e0;--border:rgba(0,0,0,.07);--text:#1a1714;--muted:#68635a;--subtle:#c0b8a5;--cream:#7a5c2a;--cream-dim:#c8a96e}
+:root{
+  --bg:#060606;--s1:#0d0d0d;--s2:#141414;--s3:#1c1c1c;
+  --border:rgba(255,255,255,.05);--text:#ddd8ce;
+  --muted:#6b6560;--subtle:#302a24;
+  --cream:#c8b890;--cream-dim:#6b5838;--r:12px;--pw:680px;
+}
+[data-theme="light"]{
+  --bg:#f9f6f0;--s1:#fffefc;--s2:#f9f6f0;--s3:#ede9e0;
+  --border:rgba(0,0,0,.07);--text:#1a1714;
+  --muted:#68635a;--subtle:#c0b8a5;
+  --cream:#7a5c2a;--cream-dim:#c8a96e;
+}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);transition:background .3s,color .3s;overflow-x:hidden}
@@ -17,21 +27,21 @@ a{color:inherit;text-decoration:none}
 body::after{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.45;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E")}
 
 .progress-bar{position:fixed;top:0;left:0;right:0;height:2px;background:var(--border);z-index:200}
-.progress-fill{height:100%;background:var(--cream);width:0%;transition:width .08s linear}
+.progress-fill{height:100%;background:var(--cream);width:0%}
 
-nav{position:sticky;top:0;z-index:99;display:flex;align-items:center;justify-content:space-between;padding:11px 24px;background:color-mix(in srgb,var(--bg) 88%,transparent);border-bottom:1px solid var(--border);backdrop-filter:blur(20px)}
+nav{position:sticky;top:0;z-index:99;display:flex;align-items:center;justify-content:space-between;padding:11px 24px;background:var(--s1);border-bottom:1px solid var(--border);backdrop-filter:blur(20px)}
 .nav-l{display:flex;align-items:center;gap:10px}
 .nav-back{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);background:var(--s2);border:1px solid var(--border);border-radius:8px;padding:5px 13px;transition:all .2s;letter-spacing:.3px}
-.nav-back:hover{color:var(--text);border-color:rgba(255,255,255,.13)}
+.nav-back:hover{color:var(--text);border-color:var(--subtle)}
 .nav-back svg{width:11px;height:11px}
-.nav-title{font-size:11px;color:var(--subtle);letter-spacing:.4px;display:none}
-@media(min-width:500px){.nav-title{display:block}}
+.nav-title{font-size:11px;color:var(--subtle);letter-spacing:.4px}
 .nav-r{display:flex;gap:7px}
 .nav-btn{width:32px;height:32px;border-radius:8px;border:1px solid var(--border);background:var(--s2);color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
-.nav-btn:hover{color:var(--text);border-color:rgba(255,255,255,.13)}
-.nav-btn svg{width:13px;height:13px}
+.nav-btn:hover{color:var(--text);border-color:var(--subtle)}
+.nav-btn svg{width:14px;height:14px}
+/* font size button label */
+.font-label{font-size:11px;font-weight:500;font-family:'Outfit',sans-serif;letter-spacing:.5px}
 
-/* COVER */
 .cover{padding:96px 24px 80px;text-align:center;position:relative;z-index:1;border-bottom:1px solid var(--border)}
 .cover-kicker{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--cream);opacity:.7;margin-bottom:20px;display:block}
 .cover-title{font-family:'Cormorant Garamond',serif;font-size:clamp(52px,10vw,96px);font-weight:300;letter-spacing:-2.5px;line-height:.95;color:var(--text);margin-bottom:28px}
@@ -46,42 +56,43 @@ nav{position:sticky;top:0;z-index:99;display:flex;align-items:center;justify-con
 .start-btn:hover{border-color:var(--cream-dim);background:rgba(200,184,144,.06)}
 .start-btn svg{width:12px;height:12px}
 
-/* CHAPTER NAV */
 .ch-nav-wrap{max-width:var(--pw);margin:0 auto;padding:48px 24px 0;position:relative;z-index:1}
 .ch-nav-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--subtle);margin-bottom:14px;display:block}
 .ch-links{display:flex;flex-direction:column;gap:2px}
-.ch-link{display:flex;align-items:center;justify-content:space-between;padding:13px 17px;border-radius:var(--r);border:1px solid var(--border);background:var(--s1);font-size:13px;transition:all .2s}
-.ch-link:hover{border-color:rgba(255,255,255,.1);background:var(--s2)}
+.ch-link{display:flex;align-items:center;justify-content:space-between;padding:13px 17px;border-radius:var(--r);border:1px solid var(--border);background:var(--s1);transition:all .2s}
+.ch-link:hover{border-color:var(--subtle);background:var(--s2)}
 .ch-link-num{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--subtle)}
 .ch-link-title{font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--text);font-style:italic}
 .ch-link svg{width:13px;height:13px;color:var(--subtle)}
 
-/* PROSE */
 .prose-wrap{max-width:var(--pw);margin:0 auto;padding:64px 24px 100px;position:relative;z-index:1}
-.ch-head{margin-bottom:48px;padding-bottom:28px;border-bottom:1px solid var(--border);scroll-margin-top:80px}
-.ch-head+.ch-head{margin-top:72px}
-.ch-kicker{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--cream);opacity:.65;margin-bottom:12px;display:block}
+.ch-head{margin-bottom:44px;padding-bottom:24px;border-bottom:1px solid var(--border);scroll-margin-top:72px}
+.ch-head+.prose+.break+.ch-head{margin-top:56px}
+.ch-kicker{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--cream);opacity:.65;margin-bottom:10px;display:block}
 .ch-title{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,40px);font-weight:300;letter-spacing:-.5px;line-height:1.1;color:var(--text);font-style:italic}
-.prose{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,2.2vw,21px);line-height:1.88;color:var(--text);font-weight:300}
-.prose p{margin-bottom:1.6em}
+
+/* PROSE — three sizes controlled by body class */
+.prose{font-family:'Cormorant Garamond',serif;font-size:20px;line-height:1.9;color:var(--text);font-weight:300}
+body.fs-sm .prose{font-size:17px;line-height:1.85}
+body.fs-lg .prose{font-size:24px;line-height:1.95}
+.prose p{margin-bottom:1.55em}
 .prose p:last-child{margin-bottom:0}
 .prose .d{font-style:italic}
 .prose .emph{font-style:italic;color:var(--muted)}
-.break{text-align:center;color:var(--subtle);font-size:13px;margin:2.5em 0;letter-spacing:6px}
-.end-section{margin-top:72px;padding-top:40px;border-top:1px solid var(--border);text-align:center}
+
+.break{text-align:center;color:var(--subtle);font-size:14px;margin:2.5em 0;letter-spacing:5px}
+.chapter-gap{height:56px}
+
+.end-section{margin-top:64px;padding-top:36px;border-top:1px solid var(--border);text-align:center}
 .end-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;color:var(--muted);margin-bottom:24px}
 .back-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;border-radius:8px;border:1px solid var(--border);color:var(--muted);font-size:12px;letter-spacing:.4px;transition:all .2s;font-family:'Outfit',sans-serif}
-.back-btn:hover{color:var(--text);border-color:rgba(255,255,255,.13)}
+.back-btn:hover{color:var(--text);border-color:var(--subtle)}
 .back-btn svg{width:12px;height:12px}
 
-/* SCROLL TO TOP */
-.scroll-top{position:fixed;bottom:24px;right:24px;z-index:100;width:38px;height:38px;border-radius:10px;border:1px solid var(--border);background:var(--s1);color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;opacity:0;pointer-events:none;backdrop-filter:blur(12px)}
+.scroll-top{position:fixed;bottom:24px;right:24px;z-index:100;width:38px;height:38px;border-radius:10px;border:1px solid var(--border);background:var(--s1);color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s,opacity .3s;opacity:0;pointer-events:none}
 .scroll-top.show{opacity:1;pointer-events:all}
-.scroll-top:hover{color:var(--text);border-color:rgba(255,255,255,.13)}
+.scroll-top:hover{color:var(--text);border-color:var(--subtle)}
 .scroll-top svg{width:13px;height:13px}
-
-.font-sm .prose{font-size:17px}
-.font-lg .prose{font-size:25px}
 </style>
 </head>
 <body>
@@ -97,11 +108,13 @@ nav{position:sticky;top:0;z-index:99;display:flex;align-items:center;justify-con
     <span class="nav-title">The Inheritance</span>
   </div>
   <div class="nav-r">
-    <button class="nav-btn" onclick="cycleFont()" title="Font size">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><text x="3" y="18" font-size="15" fill="currentColor" stroke="none" font-family="Georgia,serif">A</text><text x="13" y="14" font-size="9" fill="currentColor" stroke="none" font-family="Georgia,serif">A</text></svg>
+    <button class="nav-btn" onclick="cycleFont()" title="Change font size">
+      <span class="font-label" id="fontLabel">Aa</span>
     </button>
-    <button class="nav-btn" onclick="toggleTheme()" title="Theme">
-      <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    <button class="nav-btn" id="themeBtn" onclick="toggleTheme()" title="Toggle theme">
+      <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
     </button>
   </div>
 </nav>
@@ -114,6 +127,7 @@ nav{position:sticky;top:0;z-index:99;display:flex;align-items:center;justify-con
     <span class="c-tag horror">Horror</span>
     <span class="c-tag">Paranormal</span>
     <span class="c-tag">Short Story</span>
+    <span class="c-tag">English</span>
   </div>
   <div class="cover-meta">
     <span class="c-meta-item">
@@ -138,14 +152,26 @@ nav{position:sticky;top:0;z-index:99;display:flex;align-items:center;justify-con
 <div class="ch-nav-wrap">
   <span class="ch-nav-label">Contents</span>
   <div class="ch-links">
-    <a class="ch-link" href="#ch1"><span><div class="ch-link-num">Chapter I</div><div class="ch-link-title">The Friend in the Light</div></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-    <a class="ch-link" href="#ch2"><span><div class="ch-link-num">Chapter II</div><div class="ch-link-title">The Relatives at Night</div></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-    <a class="ch-link" href="#ch3"><span><div class="ch-link-num">Chapter III</div><div class="ch-link-title">The Village of Husks</div></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-    <a class="ch-link" href="#ch4"><span><div class="ch-link-num">Chapter IV</div><div class="ch-link-title">The Chase at Noon</div></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    <a class="ch-link" href="#ch1">
+      <span><div class="ch-link-num">Chapter I</div><div class="ch-link-title">The Friend in the Light</div></span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+    <a class="ch-link" href="#ch2">
+      <span><div class="ch-link-num">Chapter II</div><div class="ch-link-title">The Relatives at Night</div></span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+    <a class="ch-link" href="#ch3">
+      <span><div class="ch-link-num">Chapter III</div><div class="ch-link-title">The Village of Husks</div></span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+    <a class="ch-link" href="#ch4">
+      <span><div class="ch-link-num">Chapter IV</div><div class="ch-link-title">The Chase at Noon</div></span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
   </div>
 </div>
 
-<div class="prose-wrap" id="pw">
+<div class="prose-wrap">
 
   <div class="ch-head" id="ch1">
     <span class="ch-kicker">Chapter I</span>
@@ -163,7 +189,7 @@ nav{position:sticky;top:0;z-index:99;display:flex;align-items:center;justify-con
     <p>The smile snapped back into place.</p>
     <p>The wrongness began on the second day. While photographing a crumbling manor, Gautam noticed his own shadow on the wall. As he moved, the shadow mimicked him perfectly, until it didn't. For a split second, the shadow's arm lagged behind, its head tilting at an impossible angle before snapping back into place. He blinked, dismissing it as a trick of the heat haze. Later, while sitting by the pond, he saw the shadow of a bird flying overhead. But on the ground, the shadow seemed to stumble mid-flight, a frantic flutter before it corrected itself.</p>
     <p>He found it amusing. The shadows here were clumsy, imperfect copies. They were weak. That evening, he called his friend Rashed in Dhaka, laughing about the village's quirky "glitchy shadows."</p>
-    <p class="d">"They're only around during the day, obviously," Gautam said. "At night, no light, no shadows. Peace and quiet."</p>
+    <p class="d">"They're only around during the day, obviously. At night, no light, no shadows. Peace and quiet."</p>
     <p>There was a pause on the line. Then Rashed's voice, low and thoughtful.</p>
     <p class="d">"Are you sure about that? Darkness doesn't make shadows disappear, does it? It just makes the whole world a shadow. What if that's when they stop being just copies? What if that's when they get stronger?"</p>
     <p>The line went dead, but the question hung in the air, cold and heavy.</p>
@@ -173,6 +199,7 @@ nav{position:sticky;top:0;z-index:99;display:flex;align-items:center;justify-con
   </div>
 
   <div class="break">&mdash;&nbsp;&nbsp;&mdash;&nbsp;&nbsp;&mdash;</div>
+  <div class="chapter-gap"></div>
 
   <div class="ch-head" id="ch2">
     <span class="ch-kicker">Chapter II</span>
@@ -189,6 +216,7 @@ nav{position:sticky;top:0;z-index:99;display:flex;align-items:center;justify-con
   </div>
 
   <div class="break">&mdash;&nbsp;&nbsp;&mdash;&nbsp;&nbsp;&mdash;</div>
+  <div class="chapter-gap"></div>
 
   <div class="ch-head" id="ch3">
     <span class="ch-kicker">Chapter III</span>
@@ -203,6 +231,7 @@ nav{position:sticky;top:0;z-index:99;display:flex;align-items:center;justify-con
   </div>
 
   <div class="break">&mdash;&nbsp;&nbsp;&mdash;&nbsp;&nbsp;&mdash;</div>
+  <div class="chapter-gap"></div>
 
   <div class="ch-head" id="ch4">
     <span class="ch-kicker">Chapter IV</span>
@@ -213,4 +242,4 @@ nav{position:sticky;top:0;z-index:99;display:flex;align-items:center;justify-con
     <p>He didn't pack. He simply burst out of the bungalow and ran. The village square was empty, bathed in the harsh light. For a moment, he thought he might make it. He sprinted, his feet pounding on the dusty road leading out of the village.</p>
     <p>Then, out of the corner of his eye, he saw it.</p>
     <p>The shadow of the guesthouse flagpole stretching like black tar and slithering onto the road. Then the shadow of a banyan tree flowing after him like a river of ink.</p>
-    <p>He ran faster, his lungs burning
+    <p>He ran faster, his lungs burning. He glanced behind him and a scream died in his throat. It was a stampede. Every shadow in Nijhumdanga was chasing him. The shadows of houses, of fences, of rocks, even the tiny, flickering shadows of leaves on the trees — all had abandoned their sources and were converging into a single, monstrous, silent wave of d
