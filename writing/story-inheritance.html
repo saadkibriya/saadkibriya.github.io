@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>The Inheritance — Md Golam Kibriya</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#060606;--s1:#0d0d0d;--s2:#141414;--s3:#1c1c1c;--border:rgba(255,255,255,.05);--text:#ddd8ce;--muted:#6b6560;--subtle:#302a24;--cream:#c8b890;--cream-dim:#6b5838;--r:12px;--pw:680px}
+[data-theme="light"]{--bg:#f9f6f0;--s1:#fffefc;--s2:#f9f6f0;--s3:#ede9e0;--border:rgba(0,0,0,.07);--text:#1a1714;--muted:#68635a;--subtle:#c0b8a5;--cream:#7a5c2a;--cream-dim:#c8a96e}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);transition:background .3s,color .3s;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+body::after{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.45;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E")}
+
+.progress-bar{position:fixed;top:0;left:0;right:0;height:2px;background:var(--border);z-index:200}
+.progress-fill{height:100%;background:var(--cream);width:0%;transition:width .08s linear}
+
+nav{position:sticky;top:0;z-index:99;display:flex;align-items:center;justify-content:space-between;padding:11px 24px;background:color-mix(in srgb,var(--bg) 88%,transparent);border-bottom:1px solid var(--border);backdrop-filter:blur(20px)}
+.nav-l{display:flex;align-items:center;gap:10px}
+.nav-back{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);background:var(--s2);border:1px solid var(--border);border-radius:8px;padding:5px 13px;transition:all .2s;letter-spacing:.3px}
+.nav-back:hover{color:var(--text);border-color:rgba(255,255,255,.13)}
+.nav-back svg{width:11px;height:11px}
+.nav-title{font-size:11px;color:var(--subtle);letter-spacing:.4px;display:none}
+@media(min-width:500px){.nav-title{display:block}}
+.nav-r{display:flex;gap:7px}
+.nav-btn{width:32px;height:32px;border-radius:8px;border:1px solid var(--border);background:var(--s2);color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.nav-btn:hover{color:var(--text);border-color:rgba(255,255,255,.13)}
+.nav-btn svg{width:13px;height:13px}
+
+/* COVER */
+.cover{padding:96px 24px 80px;text-align:center;position:relative;z-index:1;border-bottom:1px solid var(--border)}
+.cover-kicker{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--cream);opacity:.7;margin-bottom:20px;display:block}
+.cover-title{font-family:'Cormorant Garamond',serif;font-size:clamp(52px,10vw,96px);font-weight:300;letter-spacing:-2.5px;line-height:.95;color:var(--text);margin-bottom:28px}
+.cover-author{font-size:13px;color:var(--muted);letter-spacing:.5px;margin-bottom:32px}
+.cover-tags{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
+.c-tag{font-size:10px;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:4px;border:1px solid var(--border);color:var(--muted)}
+.c-tag.horror{border-color:rgba(160,60,40,.35);color:rgba(210,110,90,.7)}
+.cover-meta{display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;font-size:11px;color:var(--subtle);letter-spacing:.5px;margin-bottom:40px}
+.c-meta-item{display:flex;align-items:center;gap:6px}
+.c-meta-item svg{width:12px;height:12px}
+.start-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 24px;border-radius:8px;border:1px solid var(--border);color:var(--cream);font-size:12px;letter-spacing:.4px;transition:all .2s;font-family:'Outfit',sans-serif}
+.start-btn:hover{border-color:var(--cream-dim);background:rgba(200,184,144,.06)}
+.start-btn svg{width:12px;height:12px}
+
+/* CHAPTER NAV */
+.ch-nav-wrap{max-width:var(--pw);margin:0 auto;padding:48px 24px 0;position:relative;z-index:1}
+.ch-nav-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--subtle);margin-bottom:14px;display:block}
+.ch-links{display:flex;flex-direction:column;gap:2px}
+.ch-link{display:flex;align-items:center;justify-content:space-between;padding:13px 17px;border-radius:var(--r);border:1px solid var(--border);background:var(--s1);font-size:13px;transition:all .2s}
+.ch-link:hover{border-color:rgba(255,255,255,.1);background:var(--s2)}
+.ch-link-num{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--subtle)}
+.ch-link-title{font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--text);font-style:italic}
+.ch-link svg{width:13px;height:13px;color:var(--subtle)}
+
+/* PROSE */
+.prose-wrap{max-width:var(--pw);margin:0 auto;padding:64px 24px 100px;position:relative;z-index:1}
+.ch-head{margin-bottom:48px;padding-bottom:28px;border-bottom:1px solid var(--border);scroll-margin-top:80px}
+.ch-head+.ch-head{margin-top:72px}
+.ch-kicker{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--cream);opacity:.65;margin-bottom:12px;display:block}
+.ch-title{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,40px);font-weight:300;letter-spacing:-.5px;line-height:1.1;color:var(--text);font-style:italic}
+.prose{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,2.2vw,21px);line-height:1.88;color:var(--text);font-weight:300}
+.prose p{margin-bottom:1.6em}
+.prose p:last-child{margin-bottom:0}
+.prose .d{font-style:italic}
+.prose .emph{font-style:italic;color:var(--muted)}
+.break{text-align:center;color:var(--subtle);font-size:13px;margin:2.5em 0;letter-spacing:6px}
+.end-section{margin-top:72px;padding-top:40px;border-top:1px solid var(--border);text-align:center}
+.end-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;color:var(--muted);margin-bottom:24px}
+.back-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;border-radius:8px;border:1px solid var(--border);color:var(--muted);font-size:12px;letter-spacing:.4px;transition:all .2s;font-family:'Outfit',sans-serif}
+.back-btn:hover{color:var(--text);border-color:rgba(255,255,255,.13)}
+.back-btn svg{width:12px;height:12px}
+
+/* SCROLL TO TOP */
+.scroll-top{position:fixed;bottom:24px;right:24px;z-index:100;width:38px;height:38px;border-radius:10px;border:1px solid var(--border);background:var(--s1);color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;opacity:0;pointer-events:none;backdrop-filter:blur(12px)}
+.scroll-top.show{opacity:1;pointer-events:all}
+.scroll-top:hover{color:var(--text);border-color:rgba(255,255,255,.13)}
+.scroll-top svg{width:13px;height:13px}
+
+.font-sm .prose{font-size:17px}
+.font-lg .prose{font-size:25px}
+</style>
+</head>
+<body>
+
+<div class="progress-bar"><div class="progress-fill" id="pf"></div></div>
+
+<nav>
+  <div class="nav-l">
+    <a class="nav-back" href="writing.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Writing
+    </a>
+    <span class="nav-title">The Inheritance</span>
+  </div>
+  <div class="nav-r">
+    <button class="nav-btn" onclick="cycleFont()" title="Font size">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><text x="3" y="18" font-size="15" fill="currentColor" stroke="none" font-family="Georgia,serif">A</text><text x="13" y="14" font-size="9" fill="currentColor" stroke="none" font-family="Georgia,serif">A</text></svg>
+    </button>
+    <button class="nav-btn" onclick="toggleTheme()" title="Theme">
+      <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    </button>
+  </div>
+</nav>
+
+<div class="cover">
+  <span class="cover-kicker">Short Story &middot; Horror</span>
+  <h1 class="cover-title">The<br>Inheritance</h1>
+  <div class="cover-author">By Md Golam Kibriya</div>
+  <div class="cover-tags">
+    <span class="c-tag horror">Horror</span>
+    <span class="c-tag">Paranormal</span>
+    <span class="c-tag">Short Story</span>
+  </div>
+  <div class="cover-meta">
+    <span class="c-meta-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+      4 Chapters
+    </span>
+    <span class="c-meta-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      ~20 min read
+    </span>
+    <span class="c-meta-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      Complete
+    </span>
+  </div>
+  <a class="start-btn" href="#ch1">
+    Begin Reading
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+  </a>
+</div>
+
+<div class="ch-nav-wrap">
+  <span class="ch-nav-label">Contents</span>
+  <div class="ch-links">
+    <a class="ch-link" href="#ch1"><span><div class="ch-link-num">Chapter I</div><div class="ch-link-title">The Friend in the Light</div></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    <a class="ch-link" href="#ch2"><span><div class="ch-link-num">Chapter II</div><div class="ch-link-title">The Relatives at Night</div></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    <a class="ch-link" href="#ch3"><span><div class="ch-link-num">Chapter III</div><div class="ch-link-title">The Village of Husks</div></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    <a class="ch-link" href="#ch4"><span><div class="ch-link-num">Chapter IV</div><div class="ch-link-title">The Chase at Noon</div></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+  </div>
+</div>
+
+<div class="prose-wrap" id="pw">
+
+  <div class="ch-head" id="ch1">
+    <span class="ch-kicker">Chapter I</span>
+    <h2 class="ch-title">The Friend in the Light</h2>
+  </div>
+  <div class="prose">
+    <p>The city had begun to suffocate Gautam. He called himself a photographer, but the title felt like a lie. His pictures were ghosts. Perfectly framed, perfectly lit, and utterly lifeless. This artistic emptiness was a sickness, and it drove him to seek a cure in the forgotten village of Nijhumdanga.</p>
+    <p>The air in the village was heavy, thick with a silence that felt older than the trees. Montu Mia, the caretaker of the old guesthouse, greeted him with a wide, almost goofy grin. He was a small man with a bustling energy that seemed too large for his frame.</p>
+    <p class="d">"Welcome, sir, welcome! We've been expecting you."</p>
+    <p class="d">"Expecting me?" Gautam asked, surprised.</p>
+    <p class="d">"Of course! A little bird sings in this village when a true artist is coming,"</p>
+    <p>Montu Mia said, buzzing with an enthusiasm that was both charming and slightly overwhelming.</p>
+    <p>The room was old but clean. On the wall hung an unfinished painting, its brushstrokes skilled but suddenly stopped. When Gautam asked, Montu Mia's cheerful face clouded over for just a second.</p>
+    <p class="d">"Ah, that. I used to hold a brush, sir. But now… well, now I have you to look after!"</p>
+    <p>The smile snapped back into place.</p>
+    <p>The wrongness began on the second day. While photographing a crumbling manor, Gautam noticed his own shadow on the wall. As he moved, the shadow mimicked him perfectly, until it didn't. For a split second, the shadow's arm lagged behind, its head tilting at an impossible angle before snapping back into place. He blinked, dismissing it as a trick of the heat haze. Later, while sitting by the pond, he saw the shadow of a bird flying overhead. But on the ground, the shadow seemed to stumble mid-flight, a frantic flutter before it corrected itself.</p>
+    <p>He found it amusing. The shadows here were clumsy, imperfect copies. They were weak. That evening, he called his friend Rashed in Dhaka, laughing about the village's quirky "glitchy shadows."</p>
+    <p class="d">"They're only around during the day, obviously," Gautam said. "At night, no light, no shadows. Peace and quiet."</p>
+    <p>There was a pause on the line. Then Rashed's voice, low and thoughtful.</p>
+    <p class="d">"Are you sure about that? Darkness doesn't make shadows disappear, does it? It just makes the whole world a shadow. What if that's when they stop being just copies? What if that's when they get stronger?"</p>
+    <p>The line went dead, but the question hung in the air, cold and heavy.</p>
+    <p>Later, as Montu Mia brought him dinner, Gautam casually mentioned the clumsy shadows. Montu Mia let out a hearty laugh.</p>
+    <p class="d">"Oh, them! Don't you worry about them, sir. It's simple. In Nijhumdanga, shadows are friends in the light of day, and… <span class="emph">relatives</span> at night."</p>
+    <p>He delivered the line with a wink and left before Gautam could ask what on earth he meant.</p>
+  </div>
+
+  <div class="break">&mdash;&nbsp;&nbsp;&mdash;&nbsp;&nbsp;&mdash;</div>
+
+  <div class="ch-head" id="ch2">
+    <span class="ch-kicker">Chapter II</span>
+    <h2 class="ch-title">The Relatives at Night</h2>
+  </div>
+  <div class="prose">
+    <p>Gautam couldn't shake his friend's words. That night, he left a single lamp on and tried to read, but his eyes kept darting into the deep, inky corners of the room. The silence was absolute.</p>
+    <p>He must have dozed off, because he woke with a jolt, a feeling of profound coldness in the room. The lamp was still on. His shadow was cast long and thin against the far wall. Nothing was out of place. He sighed, feeling foolish, and reached for his water bottle on the bedside table. It wasn't there.</p>
+    <p>He sat up, his heart beginning to pound. The bottle was on the floor, on the other side of the room, standing upright. He had not put it there.</p>
+    <p>A chill, deeper than the cold air, crept over him. He remembered Montu Mia's words: <span class="emph">relatives at night</span>. Friends keep their distance. Relatives come inside. They get comfortable. They touch your things.</p>
+    <p>The next night was worse. He woke to the soft, rhythmic sound of a page turning. His book, which he had left on the desk, was now on the chair beside his bed, open to a new chapter. He felt a wave of nausea. They weren't just moving things anymore. They were getting intimate. They were reading his book, sharing his space.</p>
+    <p>The true horror came on the third night. He awoke in absolute darkness. The lamp was off. He fumbled for the switch, his fingers shaking, but it wouldn't turn on. He froze, listening. He could hear something in the room with him. A faint, dry, rustling sound. And the smell… a smell like damp soil and old, forgotten things. He held his breath, every muscle tense. Then, he felt it. A cold, weightless pressure on the mattress, right beside him. Something had just sat down on his bed.</p>
+    <p>He screamed and scrambled backwards, hitting the wall. He found the main light switch, and the room flooded with light. There was nothing there. The lamp was on its stand, the book on its desk. But the indentation on his mattress, where something had been sitting, was slowly, undeniably, fading away.</p>
+  </div>
+
+  <div class="break">&mdash;&nbsp;&nbsp;&mdash;&nbsp;&nbsp;&mdash;</div>
+
+  <div class="ch-head" id="ch3">
+    <span class="ch-kicker">Chapter III</span>
+    <h2 class="ch-title">The Village of Husks</h2>
+  </div>
+  <div class="prose">
+    <p>Gautam was now a prisoner of the daylight. He spent his days in a state of growing dread, observing the village not as an artist, but as a terrified zoologist studying his predators. And he began to see the truth.</p>
+    <p>He saw an old woman sitting at a loom, her hands moving with the hypnotic grace of a master weaver. But her eyes were vacant, staring at nothing. Gautam watched her for an hour. She never blinked. On the wall behind her, her shadow was a hunched, frantic thing, its dark fingers knotting and unknotting in a frenzy of stolen creativity.</p>
+    <p>As dusk settled, casting long, distorted shadows across the village square, he saw a little girl playing hopscotch. She was laughing, but it was a thin, hollow sound. He watched, mesmerized, as she jumped from square to square. Then he realized she wasn't alone. Her shadow wasn't just mimicking her; it was taking turns. The shadow would jump into a square first, a flicker of pure black, and then the little girl would dutifully hop after it. The game belonged to the shadow.</p>
+    <p>The final, soul-crushing piece of the puzzle fell into place. He remembered Montu Mia's abandoned painting. The weaver's skill, the girl's playful spirit, Montu Mia's artistry — it had all been consumed. The villagers were husks, living puppets animated by a hollow routine. Their souls, their talents, their very essence now resided in their shadows. And those shadows, once they had fed, became something else entirely in the dark.</p>
+    <p>He was the only one left. He was the only meal.</p>
+  </div>
+
+  <div class="break">&mdash;&nbsp;&nbsp;&mdash;&nbsp;&nbsp;&mdash;</div>
+
+  <div class="ch-head" id="ch4">
+    <span class="ch-kicker">Chapter IV</span>
+    <h2 class="ch-title">The Chase at Noon</h2>
+  </div>
+  <div class="prose">
+    <p>He had to run. The thought was a primal scream in his mind. He waited until noon, when the sun was a merciless white eye in the sky and the shadows were shrunken, cowering things at the feet of their hosts. It was his only chance.</p>
+    <p>He didn't pack. He simply burst out of the bungalow and ran. The village square was empty, bathed in the harsh light. For a moment, he thought he might make it. He sprinted, his feet pounding on the dusty road leading out of the village.</p>
+    <p>Then, out of the corner of his eye, he saw it.</p>
+    <p>The shadow of the guesthouse flagpole stretching like black tar and slithering onto the road. Then the shadow of a banyan tree flowing after him like a river of ink.</p>
+    <p>He ran faster, his lungs burning
