@@ -25,30 +25,27 @@ html{scroll-behavior:smooth}
 body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;transition:background .3s,color .3s;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%}
-
-/* grain */
 body::after{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.45;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E")}
 
-/* NAV */
-nav{position:sticky;top:0;z-index:99;display:flex;align-items:center;justify-content:space-between;padding:11px 28px;background:color-mix(in srgb,var(--bg) 84%,transparent);border-bottom:1px solid var(--border);backdrop-filter:blur(20px);position:sticky;z-index:99}
+nav{position:sticky;top:0;z-index:99;display:flex;align-items:center;justify-content:space-between;padding:11px 28px;background:var(--s1);border-bottom:1px solid var(--border);backdrop-filter:blur(20px)}
 .nav-l{display:flex;align-items:center;gap:12px}
 .nav-back{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);background:var(--s2);border:1px solid var(--border);border-radius:8px;padding:5px 13px;transition:all .2s;letter-spacing:.3px}
-.nav-back:hover{color:var(--text);border-color:rgba(255,255,255,.15)}
-.nav-back svg,.nav-btn svg{width:13px;height:13px}
+.nav-back:hover{color:var(--text);border-color:var(--subtle)}
+.nav-back svg{width:11px;height:11px}
 .nav-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--subtle)}
 .nav-r{display:flex;gap:7px}
 .nav-btn{width:33px;height:33px;border-radius:8px;border:1px solid var(--border);background:var(--s2);color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
-.nav-btn:hover{color:var(--text);border-color:rgba(255,255,255,.15)}
+.nav-btn:hover{color:var(--text);border-color:var(--subtle)}
+.nav-btn svg{width:15px;height:15px}
 
-/* HERO */
 .hero{padding:88px 28px 64px;position:relative;z-index:1;max-width:1040px;margin:0 auto}
 .hero-eyebrow{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);opacity:.85;margin-bottom:18px;display:flex;align-items:center;gap:10px}
-.hero-eyebrow::after{content:'';flex:1;height:1px;background:var(--gold-dim);opacity:.4;max-width:80px}
-.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,7.5vw,90px);line-height:1;letter-spacing:-2px;color:var(--text);margin-bottom:0;font-weight:300}
+.hero-eyebrow::after{content:'';height:1px;width:60px;background:var(--gold-dim);opacity:.5}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,7.5vw,90px);line-height:1;letter-spacing:-2px;color:var(--text);font-weight:300}
 .hero-title em{font-style:italic;color:var(--muted)}
-.hero-body{display:grid;grid-template-columns:1fr 340px;gap:64px;align-items:end;margin-top:36px}
-@media(max-width:780px){.hero-body{grid-template-columns:1fr;gap:32px}}
-.hero-bio{font-size:15px;line-height:1.8;color:var(--muted);font-weight:300}
+.hero-body{display:grid;grid-template-columns:1fr 320px;gap:56px;align-items:end;margin-top:36px}
+@media(max-width:780px){.hero-body{grid-template-columns:1fr;gap:28px}}
+.hero-bio{font-size:15px;line-height:1.82;color:var(--muted);font-weight:300}
 .hero-bio p+p{margin-top:14px}
 .hero-bio strong{color:var(--text);font-weight:500}
 .hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
@@ -58,26 +55,23 @@ nav{position:sticky;top:0;z-index:99;display:flex;align-items:center;justify-con
 .stat-n{font-family:'Cormorant Garamond',serif;font-size:32px;letter-spacing:-1.5px;color:var(--gold);line-height:1;display:block}
 .stat-l{font-size:10px;letter-spacing:.8px;color:var(--subtle);margin-top:4px;display:block;text-transform:uppercase}
 
-/* GEAR STRIP */
-.gear-strip{max-width:1040px;margin:0 auto;padding:0 28px;position:relative;z-index:1;margin-bottom:56px}
-.gear-row{display:flex;gap:8px;flex-wrap:wrap}
-.gear-chip{display:inline-flex;align-items:center;gap:6px;font-size:11px;color:var(--muted);border:1px solid var(--border);border-radius:6px;padding:5px 12px;letter-spacing:.3px}
-.gear-chip svg{width:11px;height:11px;color:var(--subtle)}
+.gear-strip{max-width:1040px;margin:0 auto 52px;padding:0 28px;position:relative;z-index:1}
+.gear-row{display:flex;gap:7px;flex-wrap:wrap}
+.gear-chip{display:inline-flex;align-items:center;gap:6px;font-size:11px;color:var(--muted);border:1px solid var(--border);border-radius:6px;padding:5px 12px;letter-spacing:.2px}
+.gear-chip svg{width:11px;height:11px}
 .gear-chip.current{border-color:var(--gold-dim);color:var(--gold)}
 
-/* FILTER */
 .section-wrap{max-width:1040px;margin:0 auto;padding:0 28px;position:relative;z-index:1}
-.sec-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:12px}
+.sec-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:12px}
 .sec-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--subtle)}
 .filter-bar{display:flex;gap:6px;flex-wrap:wrap}
 .fbtn{padding:4px 13px;border-radius:6px;font-size:11px;letter-spacing:.4px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;transition:all .18s;font-family:'Outfit',sans-serif}
-.fbtn:hover{color:var(--text);border-color:rgba(255,255,255,.15)}
+.fbtn:hover{color:var(--text);border-color:var(--subtle)}
 .fbtn.on{background:var(--gold);color:#080808;border-color:var(--gold);font-weight:500}
 
-/* FEATURED GRID */
 .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-bottom:3px}
 @media(max-width:680px){.feat-grid{grid-template-columns:repeat(2,1fr)}}
-.feat-item{position:relative;overflow:hidden;aspect-ratio:1;cursor:pointer;background:var(--s2);transition:opacity .2s}
+.feat-item{position:relative;overflow:hidden;aspect-ratio:1;cursor:pointer;background:var(--s2)}
 .feat-item.hidden{display:none}
 .feat-item:first-child{grid-column:span 2;aspect-ratio:2/1}
 @media(max-width:680px){.feat-item:first-child{grid-column:span 1;aspect-ratio:1}}
@@ -91,30 +85,27 @@ nav{position:sticky;top:0;z-index:99;display:flex;align-items:center;justify-con
 .ph svg{width:22px;height:22px;opacity:.3}
 .ph span{font-size:9px;letter-spacing:1.2px;text-transform:uppercase;opacity:.3}
 
-/* INSTAGRAM LIVE */
 .feed-head{display:flex;align-items:center;justify-content:space-between;margin:48px 0 18px}
 .live-badge{display:inline-flex;align-items:center;gap:6px;font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted)}
 .live-dot{width:5px;height:5px;border-radius:50%;background:#5aab6e;animation:blink 2s infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
 
-/* BEHOLD placeholder */
-.behold-box{background:var(--s1);border:1px dashed var(--border);border-radius:var(--r);padding:40px 32px;text-align:center}
-.behold-box svg{width:28px;height:28px;color:var(--subtle);margin:0 auto 16px;display:block}
-.behold-box h3{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:400;margin-bottom:10px}
-.behold-box p{font-size:13px;color:var(--muted);line-height:1.75;max-width:480px;margin:0 auto 24px}
-.behold-steps{text-align:left;max-width:500px;margin:0 auto;font-size:12px;color:var(--muted);line-height:2.4}
-.behold-steps code{font-size:11px;background:var(--s3);padding:1px 7px;border-radius:3px;color:var(--gold);font-family:'SF Mono','Cascadia Code',monospace}
-.behold-steps strong{color:var(--text)}
+/* BEHOLD WIDGET — visible once connected, hidden until then */
+.behold-placeholder{
+  background:var(--s1);border:1px solid var(--border);
+  border-radius:var(--r);padding:48px 32px;text-align:center;
+}
+.behold-placeholder svg{width:26px;height:26px;color:var(--subtle);margin:0 auto 16px;display:block}
+.behold-placeholder h3{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;margin-bottom:8px;color:var(--text)}
+.behold-placeholder p{font-size:13px;color:var(--muted);line-height:1.7;max-width:420px;margin:0 auto}
 
-/* FOOTER */
-.page-footer{max-width:1040px;margin:64px auto 0;padding:32px 28px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;position:relative;z-index:1}
+.page-footer{max-width:1040px;margin:64px auto 0;padding:28px 28px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;position:relative;z-index:1}
 .footer-text{font-size:11px;color:var(--subtle);letter-spacing:.4px}
 .ig-follow{display:inline-flex;align-items:center;gap:7px;font-size:12px;color:var(--muted);transition:color .2s}
 .ig-follow:hover{color:var(--gold)}
 .ig-follow svg{width:14px;height:14px}
 
-/* LIGHTBOX */
-.lb{display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.97);backdrop-filter:blur(16px);align-items:center;justify-content:center;padding:20px}
+.lb{display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.97);align-items:center;justify-content:center;padding:20px}
 .lb.open{display:flex}
 .lb img{max-width:min(840px,92vw);max-height:88vh;object-fit:contain;border-radius:4px}
 .lb-close{position:absolute;top:20px;right:20px;background:none;border:1px solid rgba(255,255,255,.1);border-radius:8px;color:rgba(255,255,255,.45);cursor:pointer;width:36px;height:36px;display:flex;align-items:center;justify-content:center;transition:all .2s}
@@ -145,8 +136,8 @@ nav{position:sticky;top:0;z-index:99;display:flex;align-items:center;justify-con
     <a class="nav-btn" href="https://instagram.com/_randomcitizen" target="_blank" rel="noopener" title="Instagram">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>
     </a>
-    <button class="nav-btn" onclick="toggleTheme()" title="Theme">
-      <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    <button class="nav-btn" id="themeBtn" onclick="toggleTheme()" title="Toggle theme">
+      <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
     </button>
   </div>
 </nav>
@@ -163,18 +154,9 @@ nav{position:sticky;top:0;z-index:99;display:flex;align-items:center;justify-con
     </div>
     <div>
       <div class="hero-stats">
-        <div class="stat-box">
-          <span class="stat-n">245</span>
-          <span class="stat-l">Posts</span>
-        </div>
-        <div class="stat-box">
-          <span class="stat-n">6+</span>
-          <span class="stat-l">Years</span>
-        </div>
-        <div class="stat-box">
-          <span class="stat-n">1.2K</span>
-          <span class="stat-l">Followers</span>
-        </div>
+        <div class="stat-box"><span class="stat-n">245</span><span class="stat-l">Posts</span></div>
+        <div class="stat-box"><span class="stat-n">6+</span><span class="stat-l">Years</span></div>
+        <div class="stat-box"><span class="stat-n">1.2K</span><span class="stat-l">Followers</span></div>
       </div>
     </div>
   </div>
@@ -196,13 +178,12 @@ nav{position:sticky;top:0;z-index:99;display:flex;align-items:center;justify-con
     </div>
     <div class="gear-chip">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
-      No DSLR. No Mirrorless. No apologies.
+      No DSLR. No mirrorless. No apologies.
     </div>
   </div>
 </div>
 
 <div class="section-wrap">
-
   <div class="sec-row">
     <span class="sec-label">Selected Works</span>
     <div class="filter-bar">
@@ -215,115 +196,87 @@ nav{position:sticky;top:0;z-index:99;display:flex;align-items:center;justify-con
     </div>
   </div>
 
-  <!--
-  ═══════════════════════════════════════════════════════════
-  HOW TO ADD YOUR PHOTOS (one-time, never touch again):
-  
-  1. Create a folder called "assets" next to this HTML file
-  2. Copy your best photos into assets/
-  3. For EACH .feat-item below, replace:
-       <div class="ph">...</div>
-     with:
-       <img src="assets/YOUR-FILE.jpg" alt="Caption here" onclick="openLB(this.src,this.alt)">
-  4. Set data-tag on the parent .feat-item to match what's in it:
-     data-tag="sunset"  OR  data-tag="travel landscape"  etc.
-  5. Update the .feat-caption text to match your photo
-  
-  That's it. Filter buttons work automatically.
-  ═══════════════════════════════════════════════════════════
-  -->
+  <!-- ADD YOUR PHOTOS: replace each <div class="ph">...</div> with <img src="assets/file.jpg" alt="Caption" onclick="openLB(this.src,this.alt)"> -->
   <div class="feat-grid" id="fg">
-
     <div class="feat-item" data-tag="sunset landscape">
-      <div class="ph">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        <span>Add photo</span>
-      </div>
-      <div class="feat-overlay"><div class="feat-caption">Your caption here</div></div>
+      <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Add photo</span></div>
+      <div class="feat-overlay"><div class="feat-caption">Your caption</div></div>
       <span class="feat-badge">Featured</span>
     </div>
-
     <div class="feat-item" data-tag="travel">
-      <div class="ph">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        <span>Add photo</span>
-      </div>
-      <div class="feat-overlay"><div class="feat-caption">Your caption here</div></div>
+      <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Add photo</span></div>
+      <div class="feat-overlay"><div class="feat-caption">Your caption</div></div>
     </div>
-
     <div class="feat-item" data-tag="sunset">
-      <div class="ph">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        <span>Add photo</span>
-      </div>
-      <div class="feat-overlay"><div class="feat-caption">Your caption here</div></div>
+      <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Add photo</span></div>
+      <div class="feat-overlay"><div class="feat-caption">Your caption</div></div>
     </div>
-
     <div class="feat-item" data-tag="street portrait">
-      <div class="ph">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        <span>Add photo</span>
-      </div>
-      <div class="feat-overlay"><div class="feat-caption">Your caption here</div></div>
+      <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Add photo</span></div>
+      <div class="feat-overlay"><div class="feat-caption">Your caption</div></div>
     </div>
-
     <div class="feat-item" data-tag="landscape travel">
-      <div class="ph">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        <span>Add photo</span>
-      </div>
-      <div class="feat-overlay"><div class="feat-caption">Your caption here</div></div>
+      <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Add photo</span></div>
+      <div class="feat-overlay"><div class="feat-caption">Your caption</div></div>
     </div>
-
     <div class="feat-item" data-tag="portrait">
-      <div class="ph">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        <span>Add photo</span>
-      </div>
-      <div class="feat-overlay"><div class="feat-caption">Your caption here</div></div>
+      <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Add photo</span></div>
+      <div class="feat-overlay"><div class="feat-caption">Your caption</div></div>
     </div>
-
   </div>
 
-  <!-- LIVE INSTAGRAM SECTION -->
   <div class="feed-head">
-    <span class="sec-label">From Instagram &mdash; Always Fresh</span>
+    <span class="sec-label">From Instagram</span>
     <span class="live-badge"><span class="live-dot"></span>Auto-updating</span>
   </div>
 
   <!--
-  ═══════════════════════════════════════════════════════════
-  INSTAGRAM AUTO-IMPORT — ONE-TIME SETUP (15 minutes total)
-
-  STEP 1: Switch @_randomcitizen to Creator Account
-    → Instagram app → Profile → Menu (top right ☰)
-    → Settings and Privacy → Account type and tools
-    → Switch to Professional Account → Creator
-    (Free. Reversible. Your posts/followers unchanged.)
-
-  STEP 2: Sign up at behold.so (free plan)
-    → Go to behold.so → Create account
-    → "Add Feed" → "Instagram User Feed"
-    → Connect your @_randomcitizen account
-    → Choose how many posts to show (9 recommended)
-    → Click "Publish Feed"
-
-  STEP 3: Get your embed code
-    → In your Behold dashboard, click "Embed Code"
-    → Copy the two lines that look like this:
-        <script src="https://w.behold.so/widget.js" type="module"></script>
-        <behold-widget feed-id="YOUR_UNIQUE_ID"></behold-widget>
-
-  STEP 4: Come back to this file
-    → Delete the entire <div class="behold-box">...</div> below
-    → Paste those two lines in its place
-    → Save and upload to GitHub
-
-  DONE. Every time you post on Instagram, this section
-  updates automatically. You never touch this file again.
-  ═══════════════════════════════════════════════════════════
+  TO CONNECT INSTAGRAM AUTO-IMPORT (one time only):
+  1. Instagram → Settings → Account type → Switch to Creator (free, reversible)
+  2. Sign up at behold.so (free)
+  3. Connect @_randomcitizen → Create a User Feed → copy the 2-line embed code
+  4. Delete the <div class="behold-placeholder"> block below
+  5. Paste the 2 Behold lines here. Done forever.
   -->
-
-  <div class="behold-box">
+  <div class="behold-placeholder">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>
- 
+    <h3>Instagram feed connects here</h3>
+    <p>Once set up, every photo posted to @_randomcitizen appears here automatically. See the setup note in the HTML file.</p>
+  </div>
+
+  <div class="page-footer" style="padding:28px 0;margin-top:56px">
+    <span class="footer-text">Travel &middot; Sunset &middot; Landscape &middot; Street &middot; Portrait &middot; Bangladesh</span>
+    <a class="ig-follow" href="https://instagram.com/_randomcitizen" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>
+      Follow @_randomcitizen
+    </a>
+  </div>
+</div>
+
+<script>
+let dark=true;
+function toggleTheme(){
+  dark=!dark;
+  document.documentElement.setAttribute('data-theme',dark?'dark':'light');
+  document.getElementById('themeIcon').innerHTML=dark
+    ?'<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>'
+    :'<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
+}
+function filter(btn,tag){
+  document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll('.feat-item').forEach(i=>{
+    i.classList.toggle('hidden',tag!=='all'&&!i.dataset.tag.includes(tag));
+  });
+}
+function openLB(src,cap){
+  if(!src)return;
+  document.getElementById('lb-img').src=src;
+  document.getElementById('lb-cap').textContent=cap||'';
+  document.getElementById('lb').classList.add('open');
+}
+function closeLB(){document.getElementById('lb').classList.remove('open')}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLB()});
+</script>
+</body>
+</html>
