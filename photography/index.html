@@ -550,62 +550,53 @@ nav{position:sticky;top:0;z-index:99;display:flex;align-items:center;justify-con
         {
           "id": "17990234204830095",
           "mediaType": "IMAGE",
-          "mediaUrl": "https://scontent-sof1-1.cdninstagram.com/v/t51.82787-15/653907253_18014435270830095_1002134702197248231_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=102&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=t0FGhkEGzv4Q7kNvwF1xB8O&_nc_oc=AdrSoegxwz1E5wn7Z8g3fQRq9rm7_YgzUiJ0ImKzpsigKZSxWPjE1ngQUOn4xk7FfcUl2PAkTczZALZGbSDO7dVx&_nc_zt=23&_nc_ht=scontent-sof1-1.cdninstagram.com&edm=ANo9K5cEAAAA&_nc_gid=GbY_ZGJAPf2_XV_XUcJ05g&_nc_tpa=Q5bMBQHC3dM1MVNn7BMEU9yWrMoGg2RqhhwUuLW23RJRMLtk0g51i3QkZDUbRi79kfdrGB6e7eMpxzbnNw&oh=00_Af1R9hWmetAsK_uwI_WXwqnsPoJN_0r6pdu7gomWX5YcAw&oe=69F567D8",
-          "sizes": {
-            "small": {
-              "mediaUrl": "https://behold.pictures/S4fNoz31cvhYHB3ee8rbrmqm5Sm2/fj8lah4Y5p3lLRJLIwIr/17990234204830095/small.jpg",
-              "height": 400,
-              "width": 320
-            },
-            "medium": {
-              "mediaUrl": "https://behold.pictures/S4fNoz31cvhYHB3ee8rbrmqm5Sm2/fj8lah4Y5p3lLRJLIwIr/17990234204830095/medium.jpg",
-              "height": 700,
-              "width": 560
-            },
-            "large": {
-              "mediaUrl": "https://behold.pictures/S4fNoz31cvhYHB3ee8rbrmqm5Sm2/fj8lah4Y5p3lLRJLIwIr/17990234204830095/large.jpg",
-              "height": 1000,
-              "width": 800
-            },
-            "full": {
-              "mediaUrl": "https://behold.pictures/S4fNoz31cvhYHB3ee8rbrmqm5Sm2/fj8lah4Y5p3lLRJLIwIr/17990234204830095/full.jpg",
-              "height": 1800,
-              "width": 1440
-            }
-          },
-          "colorPalette": {
-            "dominant": "197,184,184",
-            "muted": "132,116,108",
-            "mutedLight": "196,187,188",
-            "mutedDark": "68,52,53",
-            "vibrant": "191,127,63",
-            "vibrantLight": "222,188,155",
-            "vibrantDark": "12,8,4"
-          },
-          "missingVideoThumbnail": false
-        },
-        {
-          "id": "17880681051363376",
-          "mediaType": "IMAGE",
-          "mediaUrl": "https://scontent-sof1-2.cdninstagram.com/v/t51.82787-15/649205282_17906291685363376_1764502847605790256_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=111&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=5Rc2l9FwaGEQ7kNvwGgPAf3&_nc_oc=AdrtMDiJjd0XYOGLqT-uRMuQPoVbeXU52_NfGemzqnJgsrCdeLjBTQ-TOcjViGux-xn4PN5si5TKLnkXAOjEBBqj&_nc_zt=23&_nc_ht=scontent-sof1-2.cdninstagram.com&edm=ANo9K5cEAAAA&_nc_gid=GbY_ZGJAPf2_XV_XUcJ05g&_nc_tpa=Q5bMBQFkDxPTDpZM5HH0kFec6DFcXn6tPx67itHXZbgrvF9jx08B3yzcGctEG6-WCsOZRJ95Rk16RRIixQ&oh=00_Af0IWxWdn9LgRKM0UlW83X5CBHRI7UvHluEDARikLD5v9Q&oe=69F549F8",
-          "sizes": {
-            "small": {
-              "mediaUrl": "https://behold.pictures/S4fNoz31cvhYHB3ee8rbrmqm5Sm2/fj8lah4Y5p3lLRJLIwIr/17880681051363376/small.jpg",
-              "height": 400,
-              "width": 320
-            },
-            "medium": {
-              "mediaUrl": "https://behold.pictures/S4fNoz31cvhYHB3ee8rbrmqm5Sm2/fj8lah4Y5p3lLRJLIwIr/17880681051363376/medium.jpg",
-              "height": 700,
-              "width": 560
-            },
-            "large": {
-              "mediaUrl": "https://behold.pictures/S4fNoz31cvhYHB3ee8rbrmqm5Sm2/fj8lah4Y5p3lLRJLIwIr/17880681051363376/large.jpg",
-              "height": 1000,
-              "width": 800
-            },
-            "full": {
-              "mediaUrl": "https:/
+<div id="insta-gallery" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; padding: 20px 0;"></div>
+
+<script>
+  // This is the data you provided, formatted so the browser can read it
+  const feedData = [
+    {
+      "permalink": "https://www.instagram.com/p/DNIFTzLhLbI/",
+      "mediaUrl": "https://behold.pictures/S4fNoz31cvhYHB3ee8rbrmqm5Sm2/fj8lah4Y5p3lLRJLIwIr/18092546062733089/medium.jpg"
+    },
+    {
+      "permalink": "https://www.instagram.com/p/DItIvAzBMtX/",
+      "mediaUrl": "https://behold.pictures/S4fNoz31cvhYHB3ee8rbrmqm5Sm2/fj8lah4Y5p3lLRJLIwIr/17860101741400520/medium.jpg"
+    },
+    {
+      "permalink": "https://www.instagram.com/p/DEK4lPVBDwN/",
+      "mediaUrl": "https://behold.pictures/S4fNoz31cvhYHB3ee8rbrmqm5Sm2/fj8lah4Y5p3lLRJLIwIr/18088870972534211/medium.jpg"
+    },
+    {
+      "permalink": "https://www.instagram.com/p/DEFYiXDhWur/",
+      "mediaUrl": "https://behold.pictures/S4fNoz31cvhYHB3ee8rbrmqm5Sm2/fj8lah4Y5p3lLRJLIwIr/17889129453154767/medium.jpg"
+    }
+  ];
+
+  const gallery = document.getElementById('insta-gallery');
+
+  feedData.forEach(post => {
+    const anchor = document.createElement('a');
+    anchor.href = post.permalink;
+    anchor.target = '_blank';
+    
+    const img = document.createElement('img');
+    img.src = post.mediaUrl;
+    img.style.width = '100%';
+    img.style.aspectRatio = '1/1';
+    img.style.objectFit = 'cover';
+    img.style.borderRadius = '12px';
+    img.style.transition = 'transform 0.3s ease';
+    
+    // Simple hover effect
+    img.onmouseover = () => img.style.transform = 'scale(1.03)';
+    img.onmouseout = () => img.style.transform = 'scale(1)';
+
+    anchor.appendChild(img);
+    gallery.appendChild(anchor);
+  });
+</script>
+
   <div class="page-footer" style="padding:28px 0;margin-top:56px">
     <span class="footer-text">Travel &middot; Sunset &middot; Landscape &middot; Street &middot; Portrait &middot; Bangladesh</span>
     <a class="ig-follow" href="https://instagram.com/_randomcitizen" target="_blank" rel="noopener">
